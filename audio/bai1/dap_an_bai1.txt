@@ -1,0 +1,7 @@
+# Đáp án Bài 1 — 听读练 (nghe audio 1-2 rồi điền vào đây)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+#   Bài 2 (thanh mẫu):  2-1 b
+#   Bài 3 (vận mẫu):    3-1 ang      (gõ v thay cho ü; có/không dấu thanh đều được)
+#   Bài 4 (thanh điệu): 4-1 3        (số 1–4, hoặc gõ luôn âm tiết có dấu: 4-1 lǎo)
+# Nhiều đáp án chấp nhận được thì ngăn bằng dấu /   vd: 3-5 an/ang
+# Bài 5 đã có đáp án sẵn trong bai1.html (Tranh 1 → ①, Tranh 2 → ③, Tranh 3 → ②).

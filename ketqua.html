@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kết quả đã lưu | HSK1 Luyện Tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="quiz.js"></script>
+</head>
+<body class="lesson-body">
+
+<div class="ketqua-main">
+  <a href="index.html" class="back-link">← Về trang luyện tập</a>
+  <h1>📋 Kết quả đã lưu</h1>
+  <p class="sub">Danh sách này chỉ đọc dữ liệu <b>đã lưu trong trình duyệt này</b> (localStorage) — chỉ
+    thấy được kết quả nộp từ chính máy/trình duyệt đang mở trang này. Nếu đã cấu hình Google Sheet
+    (xem <code>hocvien/HUONG-DAN-GOOGLE-SHEET.md</code>), kết quả từ mọi máy sẽ nằm ở Sheet, không hiện ở đây.</p>
+
+  <div id="ketquaWrap"></div>
+</div>
+
+<script>
+const PREFIX = 'hsk1_result::';
+
+function loadAllResults(){
+  const items = [];
+  for(let i=0;i<localStorage.length;i++){
+    const key = localStorage.key(i);
+    if(!key || key.indexOf(PREFIX) !== 0) continue;
+    try{
+      const data = JSON.parse(localStorage.getItem(key));
+      items.push({ key, data });
+    }catch(e){ /* dữ liệu lỗi, bỏ qua */ }
+  }
+  items.sort((a,b)=> (b.data.timestamp||'').localeCompare(a.data.timestamp||''));
+  return items;
+}
+
+function fmtTime(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString('vi-VN');
+}
+
+function render(){
+  const wrap = document.getElementById('ketquaWrap');
+  const items = loadAllResults();
+  if(!items.length){
+    wrap.innerHTML = '<div class="ketqua-table-wrap"><div class="ketqua-empty">Chưa có kết quả nào được lưu trên trình duyệt này.<br>Học viên làm bài xong, chọn tên rồi bấm "Nộp và in kết quả" ở trang luyện tập để lưu.</div></div>';
+    return;
+  }
+  let html = '<div class="ketqua-table-wrap"><table class="ketqua-table"><thead><tr>' +
+    '<th>Học viên</th><th>Bài</th><th>Thời gian nộp</th><th>Điểm từng phần</th><th></th>' +
+    '</tr></thead><tbody>';
+  items.forEach((item, idx)=>{
+    const d = item.data;
+    html += '<tr>' +
+      '<td>'+HSK.escapeHtml(d.hocvien)+'</td>' +
+      '<td>'+HSK.escapeHtml(d.lessonName)+'</td>' +
+      '<td>'+fmtTime(d.timestamp)+'</td>' +
+      '<td>'+HSK.scoreLine(d)+'</td>' +
+      '<td class="row-actions">' +
+        '<button type="button" data-act="view" data-idx="'+idx+'">Xem</button>' +
+        '<button type="button" data-act="print" data-idx="'+idx+'">In</button>' +
+        '<button type="button" data-act="download" data-idx="'+idx+'">Tải JSON</button>' +
+        '<button type="button" class="danger" data-act="delete" data-idx="'+idx+'">Xóa</button>' +
+      '</td>' +
+    '</tr>';
+  });
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('button[data-act]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = items[+btn.dataset.idx];
+      if(!item) return;
+      if(btn.dataset.act === 'view' || btn.dataset.act === 'print'){
+        const win = window.open('', '_blank', 'width=800,height=900');
+        if(win){
+          win.document.write(HSK.buildPrintableHtml(item.data));
+          win.document.close();
+          if(btn.dataset.act === 'print'){
+            win.focus();
+            setTimeout(()=>{ try{ win.print(); }catch(e){} }, 300);
+          }
+        }
+      } else if(btn.dataset.act === 'download'){
+        const blob = new Blob([JSON.stringify(item.data, null, 2)], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = (item.data.lessonId||'bai') + '_' + (item.data.hocvien||'hocvien') + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url), 1000);
+      } else if(btn.dataset.act === 'delete'){
+        if(confirm('Xóa kết quả của "'+item.data.hocvien+'" — '+item.data.lessonName+'?')){
+          localStorage.removeItem(item.key);
+          render();
+        }
+      }
+    });
+  });
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK1 - Luyện Tập | 新HSK教程1 学练手册</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🀄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="quiz.js"></script>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="zh">新HSK教程1</span>
+      Luyện Tập HSK1
+    </div>
+    <!-- lesson buttons injected by JS from LESSONS list below -->
+    <a href="ketqua.html" target="_blank" class="lesson-btn results-link" style="margin-top:auto;text-align:center;">📋 Kết quả đã lưu</a>
+  </aside>
+
+  <div class="content-area">
+    <div class="topbar">
+      <div class="tab-group" id="tabGroup"><!-- tab dựng theo từng bài (LESSONS[].tabs) --></div>
+      <div class="hocvien-bar">
+        <label for="hocvienSelect">Tên học viên:</label>
+        <select id="hocvienSelect"><option value="">— Chọn tên —</option></select>
+        <button type="button" class="btn-submit-result" id="btnSubmitResult">Nộp và in kết quả</button>
+        <span class="hocvien-toast" id="hocvienToast"></span>
+      </div>
+      <span class="current-lesson" id="currentLessonLabel"></span>
+    </div>
+    <div class="frame-wrap">
+      <iframe id="lessonFrame" title="Nội dung bài học"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// Danh sách bài học — thêm bài mới ở đây khi có nội dung.
+// file: đường dẫn tới file .html tương ứng, available: true nếu đã có nội dung thật.
+// tabs: các tab của bài đó (giáo trình HSK1 mỗi bài có phần khác nhau) —
+//   id phải trùng data-tab của <section class="tab-section"> trong file bài.
+const DEFAULT_TABS = [
+  { id:"pronunciation", label:"🔤 Ngữ âm" },
+  { id:"practice",      label:"🎧 Nghe – Đọc" },
+  { id:"vocab",         label:"📚 Từ vựng" },
+];
+const LESSONS = [
+  { id:"bai1", num:"Bài 1", nameVi:"Xin chào, AI Tiểu Ngữ!", nameZh:"AI小语，你好！", file:"bai1.html", available:true, tabs:DEFAULT_TABS },
+];
+
+let state = {
+  lesson: LESSONS.find(l=>l.available) || LESSONS[0],
+  tab: null
+};
+
+const sidebar = document.getElementById('sidebar');
+const tabGroup = document.getElementById('tabGroup');
+const frame = document.getElementById('lessonFrame');
+const currentLabel = document.getElementById('currentLessonLabel');
+const resultsLink = sidebar.querySelector('.results-link');
+
+function lessonTabs(lesson){ return (lesson && lesson.tabs) || DEFAULT_TABS; }
+
+function renderSidebar(){
+  LESSONS.forEach(lesson=>{
+    const btn = document.createElement('button');
+    btn.className = 'lesson-btn' + (lesson.available ? '' : ' soon') + (lesson.id === state.lesson.id ? ' active' : '');
+    btn.innerHTML = '<div class="num">'+lesson.num+'</div>' +
+      '<div class="name">'+lesson.nameVi+'<span class="zh">'+lesson.nameZh+'</span></div>';
+    if(lesson.available){
+      btn.addEventListener('click', ()=>selectLesson(lesson.id));
+    } else {
+      btn.disabled = true;
+    }
+    btn.dataset.lessonId = lesson.id;
+    sidebar.insertBefore(btn, resultsLink);
+  });
+}
+
+function renderTabs(){
+  const tabs = lessonTabs(state.lesson);
+  if(!tabs.some(t=>t.id === state.tab)) state.tab = tabs[0].id;
+  tabGroup.innerHTML = '';
+  tabs.forEach(t=>{
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (t.id === state.tab ? ' active' : '');
+    btn.dataset.tab = t.id;
+    btn.textContent = t.label;
+    btn.addEventListener('click', ()=>selectTab(t.id));
+    tabGroup.appendChild(btn);
+  });
+}
+
+function selectLesson(id){
+  const lesson = LESSONS.find(l=>l.id === id);
+  if(!lesson || !lesson.available) return;
+  state.lesson = lesson;
+  document.querySelectorAll('.lesson-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lessonId === id);
+  });
+  renderTabs();
+  navigate();
+}
+
+function selectTab(tab){
+  state.tab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  navigate();
+}
+
+function navigate(){
+  frame.src = state.lesson.file + '#' + state.tab;
+  currentLabel.textContent = state.lesson.num + ' · ' + state.lesson.nameZh;
+}
+
+renderSidebar();
+renderTabs();
+navigate();
+
+/* ================================================================
+   Tên học viên (dropdown) + Nộp và in kết quả
+   Danh sách tên: hocvien/danhsachhocvien.txt (1 tên/dòng, sửa trực tiếp
+   file đó để thêm/xoá học viên — xem hocvien/README.md).
+   Lưu kết quả theo 2 cách cùng lúc:
+     1) localStorage của trình duyệt, ghi đè theo (tên + bài) — xem ketqua.html
+     2) Google Sheet qua Apps Script, nếu đã dán link vào SHEET_WEBAPP_URL
+        bên dưới — xem hocvien/HUONG-DAN-GOOGLE-SHEET.md
+   ================================================================ */
+const SHEET_WEBAPP_URL = ""; // dán link Web App (Apps Script) vào đây sau khi deploy — xem hocvien/HUONG-DAN-GOOGLE-SHEET.md
+
+const hocvienSelect = document.getElementById('hocvienSelect');
+const btnSubmitResult = document.getElementById('btnSubmitResult');
+const hocvienToast = document.getElementById('hocvienToast');
+const LAST_HOCVIEN_KEY = 'hsk1_last_hocvien';
+
+function loadHocVienList(){
+  fetch('hocvien/danhsachhocvien.txt')
+    .then(r => r.ok ? r.text() : Promise.reject())
+    .then(text=>{
+      const names = text.split('\n').map(s=>s.trim()).filter(Boolean);
+      const lastPicked = localStorage.getItem(LAST_HOCVIEN_KEY) || '';
+      names.forEach(name=>{
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        if(name === lastPicked) opt.selected = true;
+        hocvienSelect.appendChild(opt);
+      });
+    })
+    .catch(()=>{
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = 'Không tải được danh sách tên';
+      opt.disabled = true;
+      hocvienSelect.appendChild(opt);
+    });
+}
+hocvienSelect.addEventListener('change', ()=>{
+  if(hocvienSelect.value) localStorage.setItem(LAST_HOCVIEN_KEY, hocvienSelect.value);
+});
+
+function collectFromIframe(){
+  try {
+    const win = frame.contentWindow;
+    if(!win || !win.HSK || typeof win.HSK.collectResult !== 'function') return null;
+    return win.HSK.collectResult({ lessonId: state.lesson.id, lessonName: state.lesson.num + ' · ' + state.lesson.nameZh });
+  } catch(e){
+    console.error('Không đọc được đáp án từ bài học:', e);
+    return null;
+  }
+}
+
+function showToast(msg){
+  hocvienToast.textContent = msg;
+  setTimeout(()=>{ if(hocvienToast.textContent === msg) hocvienToast.textContent = ''; }, 4000);
+}
+
+btnSubmitResult.addEventListener('click', ()=>{
+  const hocvien = hocvienSelect.value;
+  if(!hocvien){
+    alert('Vui lòng chọn tên học viên trước khi nộp bài.');
+    return;
+  }
+  const data = collectFromIframe();
+  if(!data){
+    alert('Chưa tải xong nội dung bài học, vui lòng thử lại sau vài giây.');
+    return;
+  }
+  data.hocvien = hocvien;
+  data.timestamp = new Date().toISOString();
+
+  // Phương án 1 — lưu trong trình duyệt, ghi đè theo cặp (tên + bài)
+  const key = 'hsk1_result::' + data.lessonId + '::' + hocvien;
+  localStorage.setItem(key, JSON.stringify(data));
+
+  // Phương án 2 — gửi lên Google Sheet nếu đã cấu hình endpoint (bỏ qua nếu chưa)
+  if(SHEET_WEBAPP_URL){
+    fetch(SHEET_WEBAPP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    }).catch(()=>{});
+  }
+
+  // Mở cửa sổ in kết quả (có thể "Lưu thành PDF" thay vì in ra giấy)
+  const printWin = window.open('', '_blank', 'width=800,height=900');
+  if(printWin){
+    printWin.document.write(HSK.buildPrintableHtml(data));
+    printWin.document.close();
+    printWin.focus();
+    setTimeout(()=>{ try{ printWin.print(); }catch(e){} }, 300);
+  }
+
+  showToast('Đã lưu kết quả cho ' + hocvien + ' ✓');
+});
+
+loadHocVienList();
+</script>
+</body>
+</html>

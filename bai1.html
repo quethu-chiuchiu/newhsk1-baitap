@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 1 · AI小语，你好！ | HSK1 Luyện Tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script src="./quiz.js"></script>
+</head>
+<body class="lesson-body">
+
+<div class="lesson-main">
+
+  <div class="lesson-heading">
+    <span class="badge">Bài 1 · 小语讲堂 + 听读练</span>
+    <h1><span class="zh">AI小语，你好！</span></h1>
+    <p>Xin chào, AI Tiểu Ngữ! — Hello, AI Xiaoyu!</p>
+  </div>
+
+  <!-- ============ NGỮ ÂM (小语讲堂 · 语音) ============ -->
+  <section class="tab-section" data-tab="pronunciation">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">🔤</div>
+        <h2>Ngữ âm <span class="zh">一、语音 Pronunciation</span></h2>
+      </div>
+      <p class="section-note">小语讲堂 Xiaoyu’s Classroom — đọc giải thích, nghe audio 1-1 và đọc theo. Bấm vào thẻ từ để nghe đọc mẫu.</p>
+
+      <div class="audio-master">
+        <span class="label">🔊 Audio 1-1 · Ngữ âm</span>
+        <audio controls preload="none" src="audio/bai1/1-1.mp3"></audio>
+        <span class="audio-missing" style="display:none;">(chưa có file audio/bai1/1-1.mp3)</span>
+      </div>
+
+      <!-- 1. 汉语音节 -->
+      <div class="sub-title"><span class="no">1</span>Âm tiết tiếng Trung <span class="zh">汉语音节 Chinese Syllables</span></div>
+      <p class="lead">Trong tiếng Trung, <b>mỗi chữ Hán thường ứng với một âm tiết</b>. Một âm tiết thường gồm <b>thanh mẫu</b> (phụ âm đầu), <b>vận mẫu</b> (phần vần) và <b>thanh điệu</b>; có khi chỉ gồm vận mẫu và thanh điệu.</p>
+      <p class="lead zh-src zh">汉语一个汉字通常对应一个音节，汉语音节一般由声母、韵母和声调组成，有时由韵母和声调组成。</p>
+
+      <table class="py-table" id="sylTable">
+        <thead><tr>
+          <th>声母<small>Thanh mẫu</small></th><th>韵母<small>Vận mẫu</small></th><th>声调<small>Thanh điệu</small></th>
+          <th>音节<small>Âm tiết</small></th><th>例字<small>Chữ ví dụ</small></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="tts-hint">👆 Bấm vào một dòng để nghe chữ ví dụ.</p>
+
+      <div class="task-line"><div>看图片，先跟读音节，再大声朗读。<small>Nhìn tranh, nghe đọc theo âm tiết, sau đó đọc to.</small></div></div>
+      <div class="word-grid" id="words-1"></div>
+
+      <!-- 2. 声母和韵母 -->
+      <div class="sub-title"><span class="no">2</span>Thanh mẫu và vận mẫu (1) <span class="zh">声母和韵母（1）</span></div>
+      <p class="lead">Thanh mẫu ghép với vận mẫu tạo thành âm tiết, nhưng <b>không phải thanh mẫu nào cũng ghép được với mọi vận mẫu</b>:</p>
+      <div class="rule-list">
+        <div class="rule"><span class="ico">①</span><div>Trong bảng dưới, <b>chỉ n, l</b> ghép được với <b>ü</b> và các vận mẫu bắt đầu bằng ü — vd: <span class="ex-ok">nǚ 女</span>, <span class="ex-ok">lǜ 绿</span>.</div></div>
+        <div class="rule"><span class="ico">②</span><div><b>b, p, f</b> không ghép với vận mẫu <b>e</b> — không có <span class="ex-no">be</span> <span class="ex-no">pe</span> <span class="ex-no">fe</span>.</div></div>
+        <div class="rule"><span class="ico">③</span><div><b>f, g, k, h</b> không ghép với vận mẫu <b>i</b> — không có <span class="ex-no">fi</span> <span class="ex-no">gi</span> <span class="ex-no">ki</span> <span class="ex-no">hi</span>.</div></div>
+        <div class="rule"><span class="ico">④</span><div>Vận mẫu <b>er</b> không ghép với thanh mẫu nào, <b>tự đứng thành một âm tiết</b> — vd: <span class="ex-ok">èr 二</span>.</div></div>
+      </div>
+
+      <div class="task-line"><div>先跟读声母和韵母，再大声朗读。<small>Nghe đọc theo thanh mẫu và vận mẫu, sau đó đọc to.</small></div></div>
+      <div class="if-grid">
+        <div class="if-box">
+          <h4>声母 Thanh mẫu</h4>
+          <div class="chip-wrap" id="initials"></div>
+        </div>
+        <div class="if-box">
+          <h4>韵母 Vận mẫu</h4>
+          <div class="chip-wrap" id="finals"></div>
+        </div>
+      </div>
+
+      <!-- 3. 声调 -->
+      <div class="sub-title"><span class="no">3</span>Thanh điệu <span class="zh">声调 Tones</span></div>
+      <p class="lead">Tiếng Trung có <b>4 thanh điệu cơ bản</b>: thanh 1 (55), thanh 2 (35), thanh 3 (214), thanh 4 (51). Dấu thanh đặt <b>trên nguyên âm chính của vận mẫu</b>. <b>Khác thanh điệu thì khác nghĩa.</b></p>
+      <p class="lead zh-src zh">汉语有4个基本声调，包括第一声（55）、第二声（35）、第三声（214）和第四声（51）。声调要标在韵母的主要元音上。声调不同，意义也不同。</p>
+
+      <div class="tone-chart">
+        <svg viewBox="0 0 640 230" role="img" aria-label="Biểu đồ 4 thanh điệu theo thang độ cao 1–5">
+          <defs>
+            <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#e0402f"/>
+            </marker>
+          </defs>
+          <g font-family="Be Vietnam Pro, sans-serif" font-size="13" fill="#5c5148">
+            <text x="14" y="44">5</text><text x="14" y="84">4</text><text x="14" y="124">3</text><text x="14" y="164">2</text><text x="14" y="204">1</text>
+          </g>
+          <g stroke="#e8cfc8" stroke-dasharray="4 5">
+            <line x1="32" y1="40" x2="630" y2="40"/><line x1="32" y1="80" x2="630" y2="80"/>
+            <line x1="32" y1="120" x2="630" y2="120"/><line x1="32" y1="160" x2="630" y2="160"/>
+            <line x1="32" y1="200" x2="630" y2="200"/>
+          </g>
+          <g font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700" fill="#2a2118" text-anchor="middle">
+            <text x="100" y="22">一声 ā</text><text x="250" y="22">二声 á</text><text x="400" y="22">三声 ǎ</text><text x="550" y="22">四声 à</text>
+          </g>
+          <g stroke="#e0402f" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arw)">
+            <path d="M50,40 L150,40"/>
+            <path d="M205,120 L295,40"/>
+            <path d="M350,160 L395,200 L450,80"/>
+            <path d="M505,40 L595,200"/>
+          </g>
+        </svg>
+        <div class="tone-legend">
+          <div><b>ˉ</b>Thanh 1 · 55<br>cao, đều</div>
+          <div><b>ˊ</b>Thanh 2 · 35<br>đi lên</div>
+          <div><b>ˇ</b>Thanh 3 · 214<br>xuống rồi lên</div>
+          <div><b>ˋ</b>Thanh 4 · 51<br>đi xuống mạnh</div>
+        </div>
+      </div>
+
+      <div class="task-line"><div>先跟读音节，再大声朗读。<small>Nghe đọc theo âm tiết, sau đó đọc to.</small></div></div>
+      <div class="syl-grid" style="max-width:520px;margin:0 auto;">
+        <span>ā</span><span>á</span><span>ǎ</span><span>à</span>
+        <span>ē</span><span>é</span><span>ě</span><span>è</span>
+        <span class="blank">·</span><span>ér</span><span>ěr</span><span>èr</span>
+        <span>dā</span><span>dá</span><span>dǎ</span><span>dà</span>
+        <span>kē</span><span>ké</span><span>kě</span><span>kè</span>
+      </div>
+
+      <div class="task-line"><div>看图片，先跟读音节，再大声朗读。<small>Nhìn tranh, nghe đọc theo âm tiết, sau đó đọc to.</small></div></div>
+      <div class="word-grid" id="words-2"></div>
+
+      <!-- Kiểm tra nhanh -->
+      <div class="sub-title"><span class="no">✓</span>Kiểm tra nhanh <span class="zh">小测验</span></div>
+      <p class="lead">7 câu ôn lại phần ngữ âm vừa học — chọn đáp án rồi bấm <b>“Chấm điểm”</b>.</p>
+      <div id="quick-quiz"></div>
+
+      <div class="score-bar">
+        <div class="score-panel">
+          <span class="txt" id="q-score">0 / 7 câu</span>
+          <button class="btn btn-primary" id="q-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="q-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ NGHE – ĐỌC (听读练) ============ -->
+  <section class="tab-section" data-tab="practice">
+    <section class="card" id="practice">
+      <div class="section-head">
+        <div class="icon">🎧</div>
+        <h2>Nghe – Đọc – Luyện <span class="zh">二、听读练 Listen, Read, and Practice</span></h2>
+      </div>
+
+      <div class="audio-master">
+        <span class="label">🔊 Audio 1-2 · Bài 1–4</span>
+        <audio controls preload="none" src="audio/bai1/1-2.mp3"></audio>
+        <span class="audio-missing" style="display:none;">(chưa có file audio/bai1/1-2.mp3)</span>
+      </div>
+
+      <div class="key-note" id="key-note" style="display:none;"></div>
+
+      <!-- Bài 1 -->
+      <div class="part">
+        <div class="part-title">1　听录音，朗读音节。</div>
+        <div class="part-instructions">Nghe ghi âm, đọc to các âm tiết.</div>
+        <div class="syl-pair">
+          <div class="syl-grid">
+            <span>mō</span><span>mó</span><span>mǒ</span><span>mò</span>
+            <span>fū</span><span>fú</span><span>fǔ</span><span>fù</span>
+            <span>dī</span><span>dí</span><span>dǐ</span><span>dì</span>
+            <span>tāo</span><span>táo</span><span>tǎo</span><span>tào</span>
+          </div>
+          <div class="syl-grid">
+            <span>lōu</span><span>lóu</span><span>lǒu</span><span>lòu</span>
+            <span>hān</span><span>hán</span><span>hǎn</span><span>hàn</span>
+            <span>pāng</span><span>páng</span><span>pǎng</span><span>pàng</span>
+            <span>gēn</span><span>gén</span><span>gěn</span><span>gèn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bài 2 -->
+      <div class="part">
+        <div class="part-title">2　听录音，写出听到的声母并大声朗读。</div>
+        <div class="part-instructions">Nghe ghi âm, điền <b>thanh mẫu</b> nghe được vào ô trống rồi đọc to.</div>
+        <div class="fill-grid" id="ex2"></div>
+      </div>
+
+      <!-- Bài 3 -->
+      <div class="part">
+        <div class="part-title">3　听录音，写出听到的韵母并大声朗读。</div>
+        <div class="part-instructions">Nghe ghi âm, điền <b>vận mẫu</b> nghe được vào ô trống rồi đọc to. (Gõ <b>v</b> thay cho <b>ü</b>; có hoặc không gõ dấu thanh đều được.)</div>
+        <div class="fill-grid" id="ex3"></div>
+      </div>
+
+      <!-- Bài 4 -->
+      <div class="part">
+        <div class="part-title">4　听录音，写出听到的声调并大声朗读。</div>
+        <div class="part-instructions">Nghe ghi âm, bấm chọn <b>dấu thanh</b> nghe được cho mỗi âm tiết rồi đọc to.</div>
+        <div class="tone-grid" id="ex4"></div>
+      </div>
+
+      <!-- Bài 5 -->
+      <div class="part">
+        <div class="part-title">5　看图片，选择正确的对话。</div>
+        <div class="part-instructions">Nhìn tranh, chọn đoạn hội thoại đúng (①, ② hoặc ③) cho mỗi tranh.</div>
+        <div class="dlg-pics" id="ex5"></div>
+        <div class="dlg-list">
+          <div class="dlg"><span class="dn">1</span>
+            <div class="line"><span class="who">A：</span><span class="hz">你好！</span><span class="py">Nǐ hǎo!</span></div>
+            <div class="line"><span class="who">B：</span><span class="hz">你好！</span><span class="py">Nǐ hǎo!</span></div>
+          </div>
+          <div class="dlg"><span class="dn">2</span>
+            <div class="line"><span class="who">A：</span><span class="hz">你好！</span><span class="py">Nǐ hǎo!</span></div>
+            <div class="line"><span class="who">B：</span><span class="hz">你们好！</span><span class="py">Nǐmen hǎo!</span></div>
+          </div>
+          <div class="dlg"><span class="dn">3</span>
+            <div class="line"><span class="who">A：</span><span class="hz">谢谢！</span><span class="py">Xièxie!</span></div>
+            <div class="line"><span class="who">B：</span><span class="hz">不客气！</span><span class="py">Bú kèqi!</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="score-bar" id="p-score-bar" style="display:none;">
+        <div class="score-panel">
+          <span class="txt" id="p-score">0 câu</span>
+          <button class="btn btn-primary" id="p-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="p-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ TỪ VỰNG (Vocabulary game) ============ -->
+  <section class="tab-section" data-tab="vocab">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">📚</div>
+        <h2>Từ vựng <span class="zh">生词 Vocabulary</span></h2>
+      </div>
+      <div id="vocab-game"></div>
+    </section>
+  </section>
+
+  <footer class="lesson-footer">
+    Tài liệu tham khảo từ 《新HSK教程1 学练手册》— New HSK Course 1 Workbook, Lesson 1 (tr. 001–004).
+  </footer>
+</div>
+
+<script>
+HSK.initTabs('pronunciation');
+
+/* Audio chưa có file → hiện dòng nhắc thay vì player hỏng */
+document.querySelectorAll('.audio-master audio').forEach(function(a){
+  a.addEventListener('error', function(){
+    const miss = a.parentNode.querySelector('.audio-missing');
+    if(miss) miss.style.display = '';
+  });
+});
+
+/* ================= helpers dùng riêng cho trang này ================= */
+const IMG = 'images/bai1/';
+
+/* Thẻ từ có ảnh — bấm để nghe (giọng đọc tiếng Trung của trình duyệt) */
+function mountWordCards(containerId, words){
+  const box = document.getElementById(containerId);
+  words.forEach(function(w){
+    const card = HSK.el(
+      '<button type="button" class="word-card">' +
+        '<img src="'+IMG+w.img+'.webp" data-base="'+IMG+w.img+'" alt="'+w.hz+'" loading="lazy" onerror="HSK.imgFallback(this)">' +
+        '<div class="wc-body"><div class="wc-py">'+w.py+'</div><div class="wc-hz">'+w.hz+'</div><div class="wc-vi">'+w.vi+'</div></div>' +
+      '</button>');
+    card.addEventListener('click', function(){
+      HSK.speak(w.hz);
+      card.classList.add('playing');
+      setTimeout(function(){ card.classList.remove('playing'); }, 900);
+    });
+    box.appendChild(card);
+  });
+}
+
+/* ---------------- NGỮ ÂM ---------------- */
+const sylBody = document.querySelector('#sylTable tbody');
+[
+  ['b','a','ˉ','bā','八','tám'],
+  ['b','a','ˊ','bá','拔','nhổ'],
+  ['b','a','ˇ','bǎ','把','cầm'],
+  ['b','a','ˋ','bà','爸','bố'],
+  ['','a','ˉ','ā','阿','a (tiền tố)'],
+  ['','a','ˊ','á','啊','à? (thán từ)'],
+].forEach(function(r){
+  const tr = HSK.el('<table><tr class="clickable"><td>'+r[0]+'</td><td>'+r[1]+'</td><td style="font-size:20px;font-weight:800;">'+r[2]+'</td>' +
+    '<td class="py">'+r[3]+'</td><td class="hz">'+r[4]+' <span style="font-size:13px;color:var(--ink-soft);font-family:Be Vietnam Pro,sans-serif;">('+r[5]+')</span></td></tr></table>').querySelector('tr');
+  tr.addEventListener('click', function(){ HSK.speak(r[4]); });
+  sylBody.appendChild(tr);
+});
+
+mountWordCards('words-1', [
+  {img:'cha',      py:'chá',      hz:'茶',   vi:'trà'},
+  {img:'gou',      py:'gǒu',      hz:'狗',   vi:'con chó'},
+  {img:'mao',      py:'māo',      hz:'猫',   vi:'con mèo'},
+  {img:'cai',      py:'cài',      hz:'菜',   vi:'rau; món ăn'},
+  {img:'beizi',    py:'bēizi',    hz:'杯子', vi:'cái cốc'},
+  {img:'xuesheng', py:'xuésheng', hz:'学生', vi:'học sinh'},
+  {img:'laoshi',   py:'lǎoshī',   hz:'老师', vi:'giáo viên'},
+  {img:'jidan',    py:'jīdàn',    hz:'鸡蛋', vi:'trứng gà'},
+]);
+
+document.getElementById('initials').innerHTML =
+  ['b','p','m','f','d','t','n','l','g','k','h'].map(function(x){ return '<span class="chip">'+x+'</span>'; }).join('');
+document.getElementById('finals').innerHTML =
+  ['a','o','e','i','u','er','ai','ei','ao','ou','an','en','ang','eng','ong'].map(function(x){ return '<span class="chip f">'+x+'</span>'; }).join('');
+
+mountWordCards('words-2', [
+  {img:'kou',      py:'kǒu',      hz:'口',   vi:'miệng'},
+  {img:'fan',      py:'fàn',      hz:'饭',   vi:'cơm'},
+  {img:'he',       py:'hē',       hz:'喝',   vi:'uống'},
+  {img:'er',       py:'èr',       hz:'二',   vi:'số hai'},
+  {img:'nihao',    py:'nǐ hǎo',   hz:'你好', vi:'xin chào'},
+  {img:'pengyou',  py:'péngyou',  hz:'朋友', vi:'bạn bè'},
+  {img:'mianbao',  py:'miànbāo',  hz:'面包', vi:'bánh mì'},
+  {img:'meimei',   py:'mèimei',   hz:'妹妹', vi:'em gái'},
+  {img:'fangjian', py:'fángjiān', hz:'房间', vi:'căn phòng'},
+  {img:'baitian',  py:'báitiān',  hz:'白天', vi:'ban ngày'},
+  {img:'fandian',  py:'fàndiàn',  hz:'饭店', vi:'nhà hàng; khách sạn'},
+  {img:'diannao',  py:'diànnǎo',  hz:'电脑', vi:'máy tính'},
+]);
+
+/* Kiểm tra nhanh — câu hỏi soạn từ chính phần giải thích của sách */
+const quickQuiz = new HSK.Quiz({scoreTxtId:'q-score', gradeBtnId:'q-grade', resetBtnId:'q-reset'});
+const qq = document.getElementById('quick-quiz');
+[
+  {n:1, q:'Trong các thanh mẫu sau, thanh mẫu nào ghép được với vận mẫu <b>ü</b>?', o:{A:'b',B:'n',C:'g',D:'f'}, a:'B'},
+  {n:2, q:'Âm tiết nào <b>không có</b> trong tiếng Trung?', o:{A:'bo',B:'be',C:'de',D:'me'}, a:'B'},
+  {n:3, q:'Âm tiết nào <b>không có</b> trong tiếng Trung?', o:{A:'li',B:'di',C:'hi',D:'mi'}, a:'C'},
+  {n:4, q:'Vận mẫu <b>er</b>…', o:{A:'ghép được với mọi thanh mẫu',B:'chỉ ghép với n, l',C:'tự đứng thành một âm tiết',D:'chỉ ghép với b, p'}, a:'C'},
+  {n:5, q:'Thanh 3 (三声) có độ cao là:', o:{A:'55',B:'35',C:'214',D:'51'}, a:'C'},
+  {n:6, q:'Dấu thanh điệu được đánh ở đâu?', o:{A:'Trên thanh mẫu',B:'Trên nguyên âm chính của vận mẫu',C:'Sau âm tiết',D:'Không cần đánh dấu'}, a:'B'},
+  {n:7, q:'Chữ <span class="zh" style="font-size:20px;">爸</span> (bố) đọc là:', o:{A:'bā',B:'bá',C:'bǎ',D:'bà'}, a:'D'},
+].forEach(function(it){ quickQuiz.mountFillBlank(qq, it.n, it.q, it.o, it.a); });
+quickQuiz.bindButtons();
+
+/* ---------------- NGHE – ĐỌC (听读练) ---------------- */
+const practice = new HSK.KeyedQuiz({
+  scope:'#practice', scoreBarId:'p-score-bar', scoreTxtId:'p-score',
+  gradeBtnId:'p-grade', resetBtnId:'p-reset', noteId:'key-note'
+});
+
+// Bài 2 — điền thanh mẫu (ô trống đứng TRƯỚC vận mẫu)
+const ex2 = document.getElementById('ex2');
+['à','ěi','án','ù','ǎi','ěng','ó','ǎo','óng','ěn','ān','ōu','è','ǐ','áng'].forEach(function(fin, i){
+  const id = '2-' + (i+1);
+  practice.add(id, 'text', {ignoreTones:true});
+  ex2.appendChild(HSK.el('<div class="fill-item"><span class="n">'+(i+1)+'</span>' +
+    '<input class="key-input" data-q="'+id+'" maxlength="3" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Câu '+id+'">' +
+    '<span class="fixed">'+fin+'</span><span class="key-explain" data-q="'+id+'"></span></div>'));
+});
+
+// Bài 3 — điền vận mẫu (ô trống đứng SAU thanh mẫu)
+const ex3 = document.getElementById('ex3');
+['t','h','m','d','f','d','h','g','p','g','k','f','n','l','b'].forEach(function(ini, i){
+  const id = '3-' + (i+1);
+  practice.add(id, 'text', {ignoreTones:true});
+  ex3.appendChild(HSK.el('<div class="fill-item"><span class="n">'+(i+1)+'</span>' +
+    '<span class="fixed">'+ini+'</span>' +
+    '<input class="key-input" data-q="'+id+'" maxlength="6" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Câu '+id+'">' +
+    '<span class="key-explain" data-q="'+id+'"></span></div>'));
+});
+
+// Bài 4 — chọn dấu thanh
+const ex4 = document.getElementById('ex4');
+const TONE_SIGNS = ['','ˉ','ˊ','ˇ','ˋ'];
+['lao','neng','ge','ba','fen','kan','bai','li','gong','mang','gou','hou'].forEach(function(base, i){
+  const id = '4-' + (i+1);
+  practice.add(id, 'tone', {base:base});
+  const btns = [1,2,3,4].map(function(t){
+    return '<button type="button" class="tone-btn" data-value="'+HSK.addTone(base,t)+'" title="Thanh '+t+'">'+TONE_SIGNS[t]+'</button>';
+  }).join('');
+  ex4.appendChild(HSK.el('<div class="tone-pick" data-q="'+id+'" data-base="'+base+'"><span class="n">'+(i+1)+'</span>' +
+    '<div class="tone-out">'+base+'</div><div class="tone-btns">'+btns+'</div>' +
+    '<div class="key-explain" data-q="'+id+'"></div></div>'));
+});
+
+// Bài 5 — chọn hội thoại cho tranh (đáp án suy ra trực tiếp từ tranh trong sách)
+const CIRCLED = {'1':'①','2':'②','3':'③'};
+const ex5 = document.getElementById('ex5');
+[1,2,3].forEach(function(k){
+  const id = '5-' + k;
+  practice.add(id, 'choice', {label:function(v){ return CIRCLED[v] || v; }});
+  const opts = ['1','2','3'].map(function(v){
+    return '<button type="button" class="opt-btn" data-q="'+id+'" data-letter="'+v+'">'+CIRCLED[v]+'</button>';
+  }).join('');
+  ex5.appendChild(HSK.el('<div class="dlg-pic"><div class="pic-wrap">' +
+    '<img src="'+IMG+'tranh'+k+'.webp" data-base="'+IMG+'tranh'+k+'" alt="Tranh '+k+'" onerror="HSK.imgFallback(this)">' +
+    '<span class="tag">Tranh '+k+'</span></div>' +
+    '<div class="opt-group">'+opts+'</div><div class="key-explain" data-q="'+id+'"></div></div>'));
+});
+
+const BUILTIN_KEY = { '5-1':'1', '5-2':'3', '5-3':'2' };
+practice.setKey(BUILTIN_KEY);
+practice.bind();
+
+/* Đáp án bài 2–4 phụ thuộc audio 1-2 → để trong file audio/bai1/dap_an_bai1.txt
+   (mỗi dòng "mã-câu đáp án", vd "2-1 b", "3-1 ang", "4-1 3"). Có file thì tự
+   chấm thêm; chưa có thì vẫn làm bình thường, chỉ chấm bài 5. */
+fetch('audio/bai1/dap_an_bai1.txt')
+  .then(r => r.ok ? r.text() : Promise.reject())
+  .then(text => practice.setKey(Object.assign({}, HSK.parseKeyFile(text), BUILTIN_KEY)))
+  .catch(() => {});
+
+/* Cho index.html (frame cha) đọc kết quả khi bấm "Nộp và in kết quả" */
+window.HSK_PAGE = window.HSK_PAGE || {};
+window.HSK_PAGE.lessonId = "bai1";
+window.HSK_PAGE.lessonName = "Bài 1 · AI小语，你好！";
+window.HSK_PAGE.sections = [
+  { title:'🔤 Ngữ âm — Kiểm tra nhanh', short:'Ngữ âm', quiz: quickQuiz },
+  { title:'🎧 Nghe – Đọc (听读练)',     short:'Nghe–Đọc', quiz: practice },
+];
+
+/* ---------------- TỪ VỰNG (game "Đố vui tốc độ") ---------------- */
+HSK.mountVocabGame('#vocab-game', [
+  {hanzi:'你好',   pinyin:'nǐ hǎo',   mean:'xin chào'},
+  {hanzi:'你们',   pinyin:'nǐmen',    mean:'các bạn'},
+  {hanzi:'谢谢',   pinyin:'xièxie',   mean:'cảm ơn'},
+  {hanzi:'不客气', pinyin:'bú kèqi',  mean:'không có gì'},
+  {hanzi:'茶',     pinyin:'chá',      mean:'trà'},
+  {hanzi:'狗',     pinyin:'gǒu',      mean:'con chó'},
+  {hanzi:'猫',     pinyin:'māo',      mean:'con mèo'},
+  {hanzi:'菜',     pinyin:'cài',      mean:'rau; món ăn'},
+  {hanzi:'杯子',   pinyin:'bēizi',    mean:'cái cốc'},
+  {hanzi:'学生',   pinyin:'xuésheng', mean:'học sinh'},
+  {hanzi:'老师',   pinyin:'lǎoshī',   mean:'giáo viên'},
+  {hanzi:'鸡蛋',   pinyin:'jīdàn',    mean:'trứng gà'},
+  {hanzi:'口',     pinyin:'kǒu',      mean:'miệng'},
+  {hanzi:'饭',     pinyin:'fàn',      mean:'cơm'},
+  {hanzi:'喝',     pinyin:'hē',       mean:'uống'},
+  {hanzi:'二',     pinyin:'èr',       mean:'số hai'},
+  {hanzi:'朋友',   pinyin:'péngyou',  mean:'bạn bè'},
+  {hanzi:'面包',   pinyin:'miànbāo',  mean:'bánh mì'},
+  {hanzi:'妹妹',   pinyin:'mèimei',   mean:'em gái'},
+  {hanzi:'房间',   pinyin:'fángjiān', mean:'căn phòng'},
+  {hanzi:'白天',   pinyin:'báitiān',  mean:'ban ngày'},
+  {hanzi:'饭店',   pinyin:'fàndiàn',  mean:'nhà hàng; khách sạn'},
+  {hanzi:'电脑',   pinyin:'diànnǎo',  mean:'máy tính'},
+  {hanzi:'八',     pinyin:'bā',       mean:'số tám'},
+  {hanzi:'爸',     pinyin:'bà',       mean:'bố'},
+], {lessonId:'bai1', showPinyin:true, timeMs:10000});
+</script>
+</body>
+</html>
