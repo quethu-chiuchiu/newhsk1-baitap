@@ -392,16 +392,28 @@ const ex5 = document.getElementById('ex5');
     '<div class="opt-group">'+opts+'</div><div class="key-explain" data-q="'+id+'"></div></div>'));
 });
 
-const BUILTIN_KEY = { '5-1':'1', '5-2':'3', '5-3':'2' };
+/* ĐÁP ÁN — đối chiếu sách + transcript audio 1-2 (dán thẳng vào trang để
+   không phụ thuộc file .txt). File audio/bai1/dap_an_bai1.txt nếu có sẽ
+   GHI ĐÈ lên đây (tiện sửa nhanh mà không cần đụng code). */
+const BUILTIN_KEY = {};
+// Bài 2 — thanh mẫu: 大 给 盘 布 买 / 冷 佛 好 同 狠 / 斑 都 客 你 忙
+'d g p b m l f h t h b d k n m'.split(' ').forEach(function(v,i){ BUILTIN_KEY['2-'+(i+1)] = v; });
+// Bài 3 — vận mẫu: 他 狠 猫 地 房 / 东 看 狗 棚 歌 / 开 飞 怒 冷 波
+'a en ao i ang ong an ou eng e ai ei u eng o'.split(' ').forEach(function(v,i){ BUILTIN_KEY['3-'+(i+1)] = v; });
+// Bài 4 — thanh điệu: 老 能 各 八 / 分 看 白 理 / 工 盲 狗 后
+'3 2 4 1 1 4 2 3 1 2 3 4'.split(' ').forEach(function(v,i){ BUILTIN_KEY['4-'+(i+1)] = v; });
+// Bài 5 — chọn hội thoại: Tranh 1 → ①, Tranh 2 → ③, Tranh 3 → ②
+Object.assign(BUILTIN_KEY, { '5-1':'1', '5-2':'3', '5-3':'2' });
+
 practice.setKey(BUILTIN_KEY);
 practice.bind();
 
-/* Đáp án bài 2–4 phụ thuộc audio 1-2 → để trong file audio/bai1/dap_an_bai1.txt
-   (mỗi dòng "mã-câu đáp án", vd "2-1 b", "3-1 ang", "4-1 3"). Có file thì tự
-   chấm thêm; chưa có thì vẫn làm bình thường, chỉ chấm bài 5. */
-fetch('audio/bai1/dap_an_bai1.txt')
+fetch('audio/bai1/dap_an_bai1.txt', {cache:'no-store'})
   .then(r => r.ok ? r.text() : Promise.reject())
-  .then(text => practice.setKey(Object.assign({}, HSK.parseKeyFile(text), BUILTIN_KEY)))
+  .then(text => {
+    const fromFile = HSK.parseKeyFile(text);
+    if(Object.keys(fromFile).length) practice.setKey(Object.assign({}, BUILTIN_KEY, fromFile));
+  })
   .catch(() => {});
 
 /* Cho index.html (frame cha) đọc kết quả khi bấm "Nộp và in kết quả" */
