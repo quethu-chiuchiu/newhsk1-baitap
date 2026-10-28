@@ -352,12 +352,16 @@ const ex4 = document.getElementById('ex4');
        Bài 1: j/q/x            vd 'x j x ...'
        Bài 2: vận mẫu đã viết  vd 'ue in iang ...'  (ü viết thành u)
        Bài 3: số thanh 1–4     vd '2 4 2 ...'                                   */
-const KEY_EX1 = '';
-const KEY_EX2 = '';
-const KEY_EX3 = '';
+// Theo transcript audio 2-2. Dấu ? = chưa chắc / transcript thiếu → câu đó tạm chưa chấm.
+// Bài 1: 前 金 想 / 叫 谢 请 / ?(transcript “子”) 去 下
+const KEY_EX1 = 'q j x  j x q  ? q x';
+// Bài 2: 见 写 去 叫 请 / ?(thiếu) ?(“角” jiǎo hay jué) 星 解 前 / 现 起 加 修 拳
+const KEY_EX2 = 'ian ie u iao ing  ? ? ing ie ian  ian i ia iu uan';
+// Bài 3: ?(thiếu xue) 叫 裙 九 / 心 请 下 加 / 去 机 小 解
+const KEY_EX3 = '? 4 2 3  1 3 4 1  4 1 3 3';
 const BUILTIN_KEY = {};
 [['1',KEY_EX1],['2',KEY_EX2],['3',KEY_EX3]].forEach(function(p){
-  p[1].trim().split(/\s+/).filter(Boolean).forEach(function(v,i){ BUILTIN_KEY[p[0]+'-'+(i+1)] = v; });
+  p[1].trim().split(/\s+/).filter(Boolean).forEach(function(v,i){ if(v !== '?') BUILTIN_KEY[p[0]+'-'+(i+1)] = v; });
 });
 // Bài 4 — Tranh 1 (bắt tay) → ③, Tranh 2 (chào cô giáo) → ①, Tranh 3 (tự giới thiệu) → ④, Tranh 4 (xin lỗi) → ②
 Object.assign(BUILTIN_KEY, { '4-1':'3', '4-2':'1', '4-3':'4', '4-4':'2' });
