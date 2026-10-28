@@ -1,0 +1,7 @@
+# Đáp án Bài 2 — 听读练 (audio 2-2)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Đáp án trong file này GHI ĐÈ / BỔ SUNG đáp án có sẵn trong bai2.html.
+#   Bài 1 (thanh mẫu):  1-1 x            (j / q / x)
+#   Bài 2 (vận mẫu):    2-1 ue           (viết theo quy tắc: sau j q x thì ü → u)
+#   Bài 3 (thanh điệu): 3-1 2            (số 1–4)
+# Bài 4 đã có sẵn trong bai2.html: Tranh 1 → ③, Tranh 2 → ①, Tranh 3 → ④, Tranh 4 → ②
