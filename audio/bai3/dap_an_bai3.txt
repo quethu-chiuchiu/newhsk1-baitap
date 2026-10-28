@@ -1,0 +1,57 @@
+# Đáp án Bài 3 — 听读练 (theo transcript audio 3-2)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# File này GHI ĐÈ / BỔ SUNG đáp án có sẵn trong bai3.html.
+
+# Bài 1 — thanh mẫu: 三 吃 走 正 / 字 唱 人 碎 / 菜 水 日 中
+1-1 s
+1-2 ch
+1-3 z
+1-4 zh
+1-5 z
+1-6 ch
+1-7 r
+1-8 s
+1-9 c
+1-10 sh
+1-11 r
+1-12 zh
+
+# Bài 2 — vận mẫu: 租 支 菜 字 超 / 认 上 怎 日 三 / 穿 热 捉 从 谁
+2-1 u
+2-2 i
+2-3 ai
+2-4 i
+2-5 ao
+2-6 en
+2-7 ang
+2-8 en
+2-9 i
+2-10 an
+2-11 uan
+2-12 e
+2-13 uo
+2-14 ong
+2-15 ui
+
+# Bài 3 — thanh điệu: che ren chang zao shou (transcript thiếu) / 真 岁 生 日 中 / 水 坐 床 书 四
+# 3-1 ?      che
+# 3-2 ?      ren
+# 3-3 ?      chang
+# 3-4 ?      zao
+# 3-5 ?      shou
+3-6 1
+3-7 4
+3-8 1
+3-9 4
+3-10 1
+3-11 3
+3-12 4
+3-13 2
+3-14 1
+3-15 4
+
+# Bài 4 — chọn hội thoại: Tranh 1 → ③, Tranh 2 → ④, Tranh 3 → ①, Tranh 4 → ②
+4-1 3
+4-2 4
+4-3 1
+4-4 2
