@@ -522,6 +522,7 @@ window.HSK = (function(){
        type 'text'   : ô nhập  <input class="key-input" data-q="2-5">
        type 'tone'   : nhóm nút chọn thanh <div class="tone-pick" data-q="4-1">
        type 'choice' : nhóm nút .opt-btn[data-q][data-letter]
+       type 'select' : danh sách thả xuống <select class="key-select" data-q="2-5">
      Câu nào CHƯA có đáp án trong key thì vẫn làm được, chỉ không tính điểm.
      opts: {scope, scoreBarId, scoreTxtId, gradeBtnId, resetBtnId, noteId} */
   function KeyedQuiz(opts){
@@ -556,6 +557,10 @@ window.HSK = (function(){
       const inp = this.scope.querySelector('.key-input'+q);
       return inp ? inp.value.trim() : '';
     }
+    if(it.type === 'select'){
+      const sel = this.scope.querySelector('.key-select'+q);
+      return sel ? sel.value : '';
+    }
     if(it.type === 'tone'){
       const b = this.scope.querySelector('.tone-pick'+q+' .tone-btn.selected');
       return b ? b.dataset.value : '';
@@ -570,6 +575,7 @@ window.HSK = (function(){
       return k.split('/').some(function(alt){ return normPinyin(alt, it.ignoreTones) === normPinyin(ans, it.ignoreTones); });
     }
     if(it.type === 'tone') return normPinyin(ans) === normPinyin(k);
+    if(it.type === 'select') return k.split('/').some(function(alt){ return normPinyin(alt) === normPinyin(ans); });
     return String(ans).toUpperCase() === String(k).toUpperCase();
   };
   KeyedQuiz.prototype.updateLabel = function(){
@@ -606,6 +612,9 @@ window.HSK = (function(){
       if(it.type === 'text'){
         const inp = self.scope.querySelector('.key-input'+q);
         if(inp){ inp.disabled = true; inp.classList.add(ok ? 'correct' : 'wrong'); }
+      } else if(it.type === 'select'){
+        const sel = self.scope.querySelector('.key-select'+q);
+        if(sel){ sel.disabled = true; sel.classList.add(ok ? 'correct' : 'wrong'); }
       } else if(it.type === 'tone'){
         self.scope.querySelectorAll('.tone-pick'+q+' .tone-btn').forEach(function(b){
           b.classList.add('locked');
@@ -635,6 +644,9 @@ window.HSK = (function(){
     this.graded = false;
     this.scope.querySelectorAll('.key-input').forEach(function(inp){
       inp.disabled = false; inp.value = ''; inp.classList.remove('correct','wrong');
+    });
+    this.scope.querySelectorAll('.key-select').forEach(function(sel){
+      sel.disabled = false; sel.value = ''; sel.classList.remove('correct','wrong');
     });
     this.scope.querySelectorAll('.tone-btn, .opt-btn').forEach(function(b){
       b.classList.remove('selected','correct','wrong','locked');
@@ -670,6 +682,9 @@ window.HSK = (function(){
     });
     this.scope.addEventListener('input', function(e){
       if(e.target.classList && e.target.classList.contains('key-input')) self.updateLabel();
+    });
+    this.scope.addEventListener('change', function(e){
+      if(e.target.classList && e.target.classList.contains('key-select')) self.updateLabel();
     });
     if(o.gradeBtnId){ const g = document.getElementById(o.gradeBtnId); if(g) g.addEventListener('click', ()=>self.grade()); }
     if(o.resetBtnId){ const r = document.getElementById(o.resetBtnId); if(r) r.addEventListener('click', ()=>self.reset()); }

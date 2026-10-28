@@ -762,3 +762,25 @@ footer.lesson-footer{text-align:center;padding:20px 20px 10px;font-size:14.5px;c
 .dlg .hz{font-family:'Noto Sans SC',sans-serif;font-size:19px;}
 .dlg .py{font-size:13px;color:var(--ink-soft);margin-left:4px;}
 .key-note{background:#fff8e6;border:1px solid #f5dfa5;color:#7a5a12;border-radius:10px;padding:10px 14px;font-size:14.5px;margin:0 0 18px;}
+
+/* ---- Bài 2+: chọn đáp án bằng nút nhỏ / danh sách thả xuống trong ô điền ---- */
+.fill-item .opt-group{gap:4px;flex-wrap:nowrap;}
+.fill-item .opt-btn.mini{padding:4px 9px;font-size:16px;font-weight:700;border-radius:7px;min-width:32px;}
+.fill-item.wide{gap:6px;}
+.key-select{flex:1;min-width:0;border:none;border-bottom:2px solid var(--orange-light);padding:5px 2px;font-size:17px;
+  font-family:inherit;font-weight:700;color:var(--orange-dark);background:transparent;cursor:pointer;}
+.key-select:focus{outline:none;border-bottom-color:var(--orange);background:var(--cream);}
+.key-select.correct{color:var(--green);border-bottom-color:var(--green);background:var(--green-bg);}
+.key-select.wrong{color:var(--red);border-bottom-color:var(--red);background:var(--red-bg);}
+.fill-grid.cols3{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media (max-width:420px){ .fill-grid.cols3{grid-template-columns:repeat(2,minmax(0,1fr));} }
+.dlg-pics.four{grid-template-columns:repeat(4,minmax(0,1fr));}
+.dlg-pics.four img{aspect-ratio:7/8;}
+@media (max-width:700px){ .dlg-pics.four{grid-template-columns:repeat(2,minmax(0,1fr));} }
+.dlg-list.two{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media (max-width:700px){ .dlg-list.two{grid-template-columns:1fr;} }
+.syl-grid.cols6{grid-template-columns:repeat(6,minmax(0,1fr));}
+.syl-grid.cols8{grid-template-columns:repeat(8,minmax(0,1fr));}
+@media (max-width:620px){ .syl-grid.cols6,.syl-grid.cols8{grid-template-columns:repeat(4,minmax(0,1fr));} }
+.final-table td.fin{text-align:left;font-weight:700;font-size:17px;line-height:2;}
+.final-table td.fin span{display:inline-block;min-width:74px;}
