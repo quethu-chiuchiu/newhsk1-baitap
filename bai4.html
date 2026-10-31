@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 4 · 你穿红色的很好看 | HSK2 Luyện Tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script src="./quiz.js"></script>
+</head>
+<body class="lesson-body">
+
+<div class="lesson-main">
+
+  <div class="lesson-heading">
+    <span class="badge">Bài 4 · 模拟测练 Simulated Practice</span>
+    <h1><span class="zh">你穿红色的很好看</span></h1>
+    <p>Bạn mặc màu đỏ rất đẹp</p>
+  </div>
+
+  <!-- ============ NGHE (Listening) ============ -->
+  <section class="tab-section" data-tab="listening">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">🎧</div>
+        <h2>Nghe hiểu <span class="zh">一、听力 Listening</span></h2>
+      </div>
+
+      <div class="audio-master">
+        <span class="label">🎧 Audio nghe — cả bài (10 câu)</span>
+        <audio controls preload="none" src="audio/bai4/listening.mp3"></audio>
+      </div>
+
+      <!-- Part I -->
+      <div class="part">
+        <div class="part-title">第一部分 Part I</div>
+        <div class="part-instructions">第1–3题：听一句话，选择正确图片。每题听两次。 — Nghe một câu, chọn đúng hình. Mỗi câu nghe 2 lần.</div>
+        <div class="example-box">
+          例如 Ví dụ：我每天坐公交车去上班。 (Tôi ngày nào cũng đi xe buýt đi làm.) <b>→ A</b>
+        </div>
+        <div id="l-p1"></div>
+      </div>
+
+      <!-- Part II -->
+      <div class="part">
+        <div class="part-title">第二部分 Part II</div>
+        <div class="part-instructions">第4–6题：听对话，选择最匹配的图片。每题听两次。 — Nghe hội thoại, chọn hình phù hợp nhất. Mỗi câu nghe 2 lần.</div>
+
+        <div class="pic-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="pic-card"><span class="letter">A</span><img src="images/bai4/N4-A.webp" data-base="images/bai4/N4-A" alt="A" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">B</span><img src="images/bai4/N4-B.webp" data-base="images/bai4/N4-B" alt="B" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">C</span><img src="images/bai4/N4-C.webp" data-base="images/bai4/N4-C" alt="C" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">D</span><img src="images/bai4/N4-D.webp" data-base="images/bai4/N4-D" alt="D" onerror="HSK.imgFallback(this)"></div>
+        </div>
+        <div class="example-box">
+          例如：男：你喜欢什么运动？ 女：我最喜欢踢足球。 <b>→ D</b>
+        </div>
+        <div id="l-p2"></div>
+      </div>
+
+      <!-- Part III -->
+      <div class="part">
+        <div class="part-title">第三部分 Part III</div>
+        <div class="part-instructions">第7–10题：听对话，选择正确答案。每题听两次。</div>
+        <div class="example-box">
+          例如：男：给您笔，请在这儿写一下您的姓名。 女：好的，是这儿吗？ 问：女的要写什么？ <b>A 姓名 ✓　B 时间　C 问题</b>
+        </div>
+        <div id="l-p3"></div>
+      </div>
+
+      <div class="score-bar" id="l-score-bar" style="display:none;">
+        <div class="score-panel">
+          <span class="txt" id="l-score">0 / 10 câu</span>
+          <button class="btn btn-primary" id="l-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="l-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ ĐỌC (Reading) ============ -->
+  <section class="tab-section" data-tab="reading">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">📖</div>
+        <h2>Đọc hiểu <span class="zh">二、阅读 Reading</span></h2>
+      </div>
+      <p class="section-note">Chọn đáp án rồi bấm <b>“Chấm điểm”</b> ở thanh dưới cùng để tự kiểm tra.</p>
+
+      <!-- Part I -->
+      <div class="part">
+        <div class="part-title">第一部分 Part I</div>
+        <div class="part-instructions">第11–13题：选择与句子最匹配的图片。 — Chọn hình phù hợp nhất với câu.</div>
+
+        <div class="pic-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="pic-card"><span class="letter">A</span><img src="images/bai4/D1-A.webp" data-base="images/bai4/D1-A" alt="A" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">B</span><img src="images/bai4/D1-B.webp" data-base="images/bai4/D1-B" alt="B" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">C</span><img src="images/bai4/D1-C.webp" data-base="images/bai4/D1-C" alt="C" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">D</span><img src="images/bai4/D1-D.webp" data-base="images/bai4/D1-D" alt="D" onerror="HSK.imgFallback(this)"></div>
+        </div>
+        <div class="example-box">例如：每个星期六，我都去打篮球。 <b>→ D</b></div>
+        <div id="r-p1"></div>
+      </div>
+
+      <!-- Part II -->
+      <div class="part">
+        <div class="part-title">第二部分 Part II</div>
+        <div class="part-instructions">第14–17题：选词填空。</div>
+        <div class="example-box">
+          <b>A</b> 条　<b>B</b> 因为　<b>C</b> 过去　<b>D</b> 书包　<b>E</b> 完
+          <div style="margin-top:8px;">例如：题太多了，所以我没做（ E ）。</div>
+        </div>
+        <div id="r-p2"></div>
+      </div>
+
+      <!-- Part III -->
+      <div class="part">
+        <div class="part-title">第三部分 Part III</div>
+        <div class="part-instructions">第18–21题：匹配句子。</div>
+        <div class="example-box">
+          <div><b>A</b> 因为工作太累了，我想休息休息。</div>
+          <div><b>B</b> 有几个包子，还有点儿饺子，你想吃什么？</div>
+          <div><b>C</b> 去过，学校很漂亮，人也很多。</div>
+          <div><b>D</b> 我不喜欢这个颜色。</div>
+          <div><b>E</b> 他出去了，一会儿就回来。</div>
+          <div style="margin-top:8px;">例如：请问李老师在吗？ → <b>E</b></div>
+        </div>
+        <div id="r-p3"></div>
+      </div>
+
+      <!-- Part IV -->
+      <div class="part">
+        <div class="part-title">第四部分 Part IV</div>
+        <div class="part-instructions">第22–24题：选择正确答案。</div>
+        <div id="r-p4"></div>
+      </div>
+
+      <div class="score-bar">
+        <div class="score-panel">
+          <span class="txt" id="r-score">0 / 14 câu</span>
+          <button class="btn btn-primary" id="r-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="r-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ VIẾT (Writing) ============ -->
+  <section class="tab-section" data-tab="writing">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">✍️</div>
+        <h2>Viết <span class="zh">三、书写 Writing</span></h2>
+      </div>
+
+      <!-- Part I -->
+      <div class="part">
+        <div class="part-title">第一部分 Part I</div>
+        <div class="part-instructions">第25–27题：根据部件组字。 — Chọn đúng bộ phận (偏旁/部件) cần ghép thêm để tạo thành chữ đúng.</div>
+        <div class="example-box">例如：什么（shén me）— chữ <b>什</b> gồm 亻 + <b>十</b> → đáp án <b>D 十</b></div>
+        <div id="w-p1"></div>
+
+        <div class="score-bar">
+          <div class="score-panel">
+            <span class="txt" id="w1-score">0 / 3 câu</span>
+            <button class="btn btn-primary" id="w1-grade">Chấm điểm</button>
+            <button class="btn btn-ghost" id="w1-reset">Làm lại</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="part">
+        <div class="part-title">第二部分 Part II</div>
+        <div class="part-instructions">第28–30题：根据拼音写汉字。</div>
+        <div class="example-box">例如：你想喝茶还（ shi 是 ）喝咖啡？</div>
+        <div id="w-p2"></div>
+
+        <div class="score-bar">
+          <div class="score-panel">
+            <span class="txt" id="w2-score">0 / 3 câu</span>
+            <button class="btn btn-primary" id="w2-grade">Chấm điểm</button>
+            <button class="btn btn-ghost" id="w2-reset">Làm lại</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ TỪ VỰNG (Vocabulary game) ============ -->
+  <section class="tab-section" data-tab="vocab">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">📚</div>
+        <h2>Từ vựng <span class="zh">生词 Vocabulary</span></h2>
+      </div>
+      <div id="vocab-game"></div>
+    </section>
+  </section>
+
+  <footer class="lesson-footer">
+    Tài liệu tham khảo từ 《新HSK教程2 学练手册》— New HSK Course 2 Workbook.
+  </footer>
+</div>
+
+<script>
+HSK.initTabs('listening');
+
+/* ================= helpers dùng riêng cho trang này ================= */
+
+function mountPicOptionRow(containerEl, n, imgPrefix, letters){
+  const opts = (letters || ['A','B','C']).map(function(letter){
+    const base = imgPrefix + '-' + letter;
+    return '<button type="button" class="opt-btn pic-opt" data-q="'+n+'" data-letter="'+letter+'">' +
+      '<span class="letter">'+letter+'</span>' +
+      '<img src="'+base+'.webp" data-base="'+base+'" alt="'+letter+'" onerror="HSK.imgFallback(this)">' +
+      '</button>';
+  }).join('');
+  containerEl.appendChild(HSK.el(
+    '<div class="q-row" style="flex-direction:column;align-items:stretch;">' +
+      '<div class="q-num">'+n+'.</div>' +
+      '<div class="opt-group pic-opt-grid">'+opts+'</div>' +
+    '</div>'
+  ));
+}
+
+function listeningTextRow(n, opts){
+  const optHtml = opts.map(function(o,i){
+    const letter = String.fromCharCode(65+i);
+    return '<button type="button" class="opt-btn" data-q="'+n+'" data-letter="'+letter+'">'+letter+' '+o+'</button>';
+  }).join('');
+  return '<div class="q-row"><div class="q-num">'+n+'.</div><div class="opt-group">'+optHtml+'</div></div>';
+}
+
+function mountPictureMatch(quizObj, containerEl, n, questionText, letters, answerLetter){
+  quizObj.registerQuestion(n, answerLetter);
+  const row = HSK.el(
+    '<div class="q-row" style="flex-direction:column;align-items:stretch;">' +
+      '<div style="display:flex;gap:10px;"><div class="q-num">'+n+'.</div><div class="q-text">'+questionText+'</div></div>' +
+    '</div>'
+  );
+  const grp = document.createElement('div');
+  grp.className = 'opt-group';
+  grp.style.marginLeft = '36px';
+  letters.forEach(function(letter){ grp.appendChild(quizObj.makeOptBtn(n, letter)); });
+  row.appendChild(grp);
+  const exp = document.createElement('div');
+  exp.className = 'explain';
+  exp.id = 'exp-' + n;
+  exp.innerHTML = 'Đáp án: <b>'+answerLetter+'</b>';
+  row.appendChild(exp);
+  containerEl.appendChild(row);
+}
+
+/* ---------------- LISTENING ---------------- */
+const lP1 = document.getElementById('l-p1');
+mountPicOptionRow(lP1, 1, 'images/bai4/N1', ['A','B','C']);
+mountPicOptionRow(lP1, 2, 'images/bai4/N2', ['A','B','C']);
+mountPicOptionRow(lP1, 3, 'images/bai4/N3', ['A','B','C']);
+
+const lP2 = document.getElementById('l-p2');
+[4,5,6].forEach(function(n){ lP2.appendChild(HSK.el(listeningTextRow(n, ['','','','']))); });
+lP2.querySelectorAll('.q-row').forEach(function(row){
+  const n = row.querySelector('.q-num').textContent.replace('.','');
+  row.querySelector('.opt-group').innerHTML =
+    ['A','B','C','D'].map(function(l){ return '<button type="button" class="opt-btn" data-q="'+n+'" data-letter="'+l+'">'+l+'</button>'; }).join('');
+});
+
+const lP3 = document.getElementById('l-p3');
+[
+  {n:7,  opts:["超市","家里","水果店"]},
+  {n:8,  opts:["很贵","很漂亮","颜色不好看"]},
+  {n:9,  opts:["白色","黑色","绿色"]},
+  {n:10, opts:["米饭","饺子","包子"]},
+].forEach(function(item){ lP3.appendChild(HSK.el(listeningTextRow(item.n, item.opts))); });
+
+fetch('audio/bai4/dap_an_nghe_bai4.txt')
+  .then(r => r.ok ? r.text() : Promise.reject())
+  .then(text => HSK.parseAnswerKey(text))
+  .catch(() => null)
+  .then(answersDict => {
+    window.HSK_PAGE = window.HSK_PAGE || {};
+    window.HSK_PAGE.listening = HSK.mountListeningQuiz('.tab-section[data-tab="listening"]', answersDict, {
+      questionNums: [1,2,3,4,5,6,7,8,9,10],
+      scoreBarId: 'l-score-bar', scoreTxtId: 'l-score', gradeBtnId: 'l-grade', resetBtnId: 'l-reset'
+    });
+  });
+
+/* ---------------- READING ---------------- */
+const quiz = new HSK.Quiz({scoreTxtId:'r-score', gradeBtnId:'r-grade', resetBtnId:'r-reset'});
+
+// Part I — match sentence to picture
+const rP1 = document.getElementById('r-p1');
+mountPictureMatch(quiz, rP1, 11, "孩子是和妈妈一起去的商场。", ['A','B','C','D'], "A");
+mountPictureMatch(quiz, rP1, 12, "我觉得这个杯子的颜色很好看。", ['A','B','C','D'], "C");
+mountPictureMatch(quiz, rP1, 13, "我吃过烤鸭，但我不知道烤鸭是怎么做的。", ['A','B','C','D'], "B");
+
+// Part II — fill in the blank
+const p2Opts = {A:"条",B:"因为",C:"过去",D:"书包",E:"完"};
+const rP2 = document.getElementById('r-p2');
+[
+  {n:14, q:"我想给孩子买（　）裤子。", ans:"A"},
+  {n:15, q:"前边有一家商场，我们（　）看看吧。", ans:"C"},
+  {n:16, q:"女：这是你的（　）吗？男：不是，我的是黑色的。", ans:"D"},
+  {n:17, q:"男：你们是坐公交车来的吗？女：我们是打车过来的，（　）公交站有点儿远。", ans:"B"},
+].forEach(item=>quiz.mountFillBlank(rP2, item.n, item.q, p2Opts, item.ans));
+
+// Part III — match sentences
+const p3Opts = {
+  A:"因为工作太累了，我想休息休息。",
+  B:"有几个包子，还有点儿饺子，你想吃什么？",
+  C:"去过，学校很漂亮，人也很多。",
+  D:"我不喜欢这个颜色。",
+  E:"他出去了，一会儿就回来。"
+};
+const rP3 = document.getElementById('r-p3');
+[
+  {n:18, q:"家里还有吃的吗？", ans:"B"},
+  {n:19, q:"你去过北京大学吗？", ans:"C"},
+  {n:20, q:"你为什么想出去旅游？", ans:"A"},
+  {n:21, q:"你看这件怎么样？", ans:"D"},
+].forEach(item=>quiz.mountMatch(rP3, item.n, item.q, p3Opts, item.ans));
+
+// Part IV — passage + MCQ
+const rP4 = document.getElementById('r-p4');
+quiz.mountMCQBlock(rP4, 22,
+  "因为饭店的菜很好吃，也很便宜，所以店里的人非常多。我和朋友要了饺子，还要了两个菜，不到80块钱。",
+  "饭店里为什么人很多？",
+  {A:"饭菜好吃",B:"饺子不要钱",C:"能认识新朋友"}, "A");
+
+quiz.mountMCQBlock(rP4, 23,
+  "王老师生病了，我和家月去超市买了牛奶和一些好吃的，想去看看她。但我们没去过她家，不知道怎么坐车。",
+  "他们要去哪儿看王老师？",
+  {A:"超市",B:"医院",C:"王老师家"}, "C");
+
+quiz.mountMCQBlock(rP4, 24,
+  "小王给我介绍了一家新开的商场。商场里卖的衣服颜色很多，也很漂亮。我想买一条红色的裤子，但朋友说白色的好看，所以我就买了白色的。",
+  "朋友觉得哪个颜色的裤子好看？",
+  {A:"黑色",B:"白色",C:"红色"}, "B");
+
+quiz.bindButtons();
+
+/* ---------------- WRITING ---------------- */
+// Part I — chọn bộ phận (偏旁) để ghép thành chữ đúng
+const quizW1 = new HSK.Quiz({scoreTxtId:'w1-score', gradeBtnId:'w1-grade', resetBtnId:'w1-reset'});
+const radicalOpts = {A:"纟",B:"衤",C:"辶",D:"十"};
+const wP1 = document.getElementById('w-p1');
+quizW1.mountFillBlank(wP1, 25, "井去（jìn qù）→ ghép thêm bộ phận nào vào <b>井</b> để được chữ <b>进</b> (vào; tiến vào)?", radicalOpts, "C");
+quizW1.mountFillBlank(wP1, 26, "库子（kù zi）→ ghép thêm bộ phận nào vào <b>库</b> để được chữ <b>裤</b> (quần)?", radicalOpts, "B");
+quizW1.mountFillBlank(wP1, 27, "工色（hóng sè）→ ghép thêm bộ phận nào vào <b>工</b> để được chữ <b>红</b> (màu đỏ)?", radicalOpts, "A");
+quizW1.bindButtons();
+
+// Part II — viết chữ Hán theo pinyin
+const quizW2 = new HSK.Quiz({scoreTxtId:'w2-score', gradeBtnId:'w2-grade', resetBtnId:'w2-reset'});
+const wP2 = document.getElementById('w-p2');
+quizW2.mountHanzi(wP2, 28, "她没买（　）绿色的衣服。", "guo", "过");
+quizW2.mountHanzi(wP2, 29, "这家商（　）是新开的，我想去看看。", "chǎng", "场");
+quizW2.mountHanzi(wP2, 30, "因为明天不上班，所（　）今天可以晚点儿睡。", "yǐ", "以");
+quizW2.bindButtons();
+
+/* Cho trang index.html (frame cha) đọc được đáp án khi bấm "Nộp và in kết quả". */
+window.HSK_PAGE = window.HSK_PAGE || {};
+window.HSK_PAGE.lessonId = "bai4";
+window.HSK_PAGE.lessonName = "Bài 4 · 你穿红色的很好看";
+window.HSK_PAGE.reading = quiz;
+window.HSK_PAGE.writingHanzi = {
+  getSummary: function(){
+    const s1 = quizW1.getSummary(), s2 = quizW2.getSummary();
+    const bothGraded = s1.graded && s2.graded;
+    return {
+      total: s1.total + s2.total,
+      graded: bothGraded,
+      correct: bothGraded ? (s1.correct||0) + (s2.correct||0) : null,
+      answers: Object.assign({}, s1.answers, s2.answers),
+      answerKey: Object.assign({}, s1.answerKey, s2.answerKey)
+    };
+  }
+};
+
+/* ---------------- TỪ VỰNG (game "Đố vui tốc độ") ---------------- */
+HSK.mountVocabGame('#vocab-game', [
+  {hanzi:'过',   pinyin:'guo',      mean:'đã từng, rồi — trợ từ chỉ việc đã xảy ra (used after a verb for a past action/state)'},
+  {hanzi:'商场', pinyin:'shāngchǎng', mean:'trung tâm thương mại, khu mua sắm (department store)'},
+  {hanzi:'进去', pinyin:'jìnqù',    mean:'đi vào (go/get in)'},
+  {hanzi:'条',   pinyin:'tiáo',     mean:'lượng từ cho vật dài, mỏng — quần, con đường... (measure word for long, narrow, or thin things)'},
+  {hanzi:'裤子', pinyin:'kùzi',     mean:'quần (trousers; pants)'},
+  {hanzi:'白色', pinyin:'báisè',    mean:'màu trắng (white)'},
+  {hanzi:'因为', pinyin:'yīnwèi',   mean:'bởi vì (because)'},
+  {hanzi:'试',   pinyin:'shì',      mean:'thử (try)'},
+  {hanzi:'红色', pinyin:'hóngsè',   mean:'màu đỏ (red)'},
+  {hanzi:'所以', pinyin:'suǒyǐ',    mean:'vì vậy, cho nên (so; therefore)'},
+  {hanzi:'书包', pinyin:'shūbāo',   mean:'cặp sách (schoolbag)'},
+  {hanzi:'过去', pinyin:'guòqù',    mean:'đi qua, đi ngang qua (pass by; go over)'},
+  {hanzi:'绿色', pinyin:'lǜsè',     mean:'màu xanh lá (green)'},
+  {hanzi:'黑色', pinyin:'hēisè',    mean:'màu đen (black)'},
+  {hanzi:'更',   pinyin:'gèng',     mean:'càng, hơn nữa (more; still/even more)'},
+  {hanzi:'颜色', pinyin:'yánsè',    mean:'màu sắc (color)'}
+], {lessonId:'bai4'});
+</script>
+</body>
+</html>

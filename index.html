@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HSK1 - Luyện Tập | 新HSK教程1 学练手册</title>
+<title>HSK2 - Luyện Tập | 新HSK教程2 学练手册</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🀄</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,8 @@
 <div class="shell">
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <span class="zh">新HSK教程1</span>
-      Luyện Tập HSK1
+      <span class="zh">新HSK教程2</span>
+      Luyện Tập HSK2
     </div>
     <!-- lesson buttons injected by JS from LESSONS list below -->
     <a href="ketqua.html" target="_blank" class="lesson-btn results-link" style="margin-top:auto;text-align:center;">📋 Kết quả đã lưu</a>
@@ -25,7 +25,12 @@
 
   <div class="content-area">
     <div class="topbar">
-      <div class="tab-group" id="tabGroup"><!-- tab dựng theo từng bài (LESSONS[].tabs) --></div>
+      <div class="tab-group" id="tabGroup">
+        <button class="tab-btn" data-tab="listening">🎧 Nghe</button>
+        <button class="tab-btn" data-tab="reading">📖 Đọc</button>
+        <button class="tab-btn" data-tab="writing">✍️ Viết</button>
+        <button class="tab-btn" data-tab="vocab">📚 Từ vựng</button>
+      </div>
       <div class="hocvien-bar">
         <label for="hocvienSelect">Tên học viên:</label>
         <select id="hocvienSelect"><option value="">— Chọn tên —</option></select>
@@ -43,31 +48,34 @@
 <script>
 // Danh sách bài học — thêm bài mới ở đây khi có nội dung.
 // file: đường dẫn tới file .html tương ứng, available: true nếu đã có nội dung thật.
-// tabs: các tab của bài đó (giáo trình HSK1 mỗi bài có phần khác nhau) —
-//   id phải trùng data-tab của <section class="tab-section"> trong file bài.
-const DEFAULT_TABS = [
-  { id:"pronunciation", label:"🔤 Ngữ âm" },
-  { id:"practice",      label:"🎧 Nghe – Đọc" },
-  { id:"vocab",         label:"📚 Từ vựng" },
-];
 const LESSONS = [
-  { id:"bai1", num:"Bài 1", nameVi:"Xin chào, AI Tiểu Ngữ!", nameZh:"AI小语，你好！", file:"bai1.html", available:true, tabs:DEFAULT_TABS },
-  { id:"bai2", num:"Bài 2", nameVi:"Tôi tên là Lý Văn", nameZh:"我叫李文", file:"bai2.html", available:true, tabs:DEFAULT_TABS },
-  { id:"bai3", num:"Bài 3", nameVi:"Tôi là người Trung Quốc", nameZh:"我是中国人", file:"bai3.html", available:true, tabs:DEFAULT_TABS },
+  { id:"bai1", num:"Bài 1", nameVi:"Simulated Practice", nameZh:"她请我们吃了北京烤鸭", file:"bai1.html", available:true },
+  { id:"bai2", num:"Bài 2", nameVi:"Simulated Practice", nameZh:"还是打车去北大吧", file:"bai2.html", available:true },
+  { id:"bai3", num:"Bài 3", nameVi:"Simulated Practice", nameZh:"我想去西安旅游", file:"bai3.html", available:true },
+  { id:"bai4", num:"Bài 4", nameVi:"Simulated Practice", nameZh:"你穿红色的很好看", file:"bai4.html", available:true },
+  { id:"bai5", num:"Bài 5", nameVi:"Simulated Practice", nameZh:"第一次去中国朋友家", file:"bai5.html", available:true },
+  { id:"bai6", num:"Bài 6", nameVi:"Simulated Practice", nameZh:"小雪，生日快乐！", file:"bai6.html", available:true },
+  { id:"bai7", num:"Bài 7", nameVi:"Simulated Practice", nameZh:"他篮球打得很好", file:"bai7.html", available:true },
+  { id:"bai8", num:"Bài 8", nameVi:"Simulated Practice", nameZh:"虽然你忘了，但是我记得", file:"bai8.html", available:true },
+  { id:"bai9", num:"Bài 9", nameVi:"Simulated Practice", nameZh:"我去买杯奶茶", file:"bai9.html", available:true },
+  { id:"bai10", num:"Bài 10", nameVi:"Simulated Practice", nameZh:"就要考试了", file:"bai10.html", available:true },
+  { id:"bai11", num:"Bài 11", nameVi:"Simulated Practice", nameZh:"我最喜欢吃中国菜", file:"bai11.html", available:true },
+  { id:"bai12", num:"Bài 12", nameVi:"Simulated Practice", nameZh:"这里比北京冷多了", file:"bai12.html", available:true },
+  { id:"bai13", num:"Bài 13", nameVi:"Simulated Practice", nameZh:"我们爱上中文课", file:"bai13.html", available:true },
+  { id:"bai14", num:"Bài 14", nameVi:"Simulated Practice", nameZh:"一个人过年多没意思啊", file:"bai14.html", available:true },
+  { id:"bai15", num:"Bài 15", nameVi:"Simulated Practice", nameZh:"我想再去一次中国", file:"bai15.html", available:true },
 ];
+
+const DEFAULT_TAB = "listening";
 
 let state = {
   lesson: LESSONS.find(l=>l.available) || LESSONS[0],
-  tab: null
+  tab: DEFAULT_TAB
 };
 
 const sidebar = document.getElementById('sidebar');
-const tabGroup = document.getElementById('tabGroup');
 const frame = document.getElementById('lessonFrame');
 const currentLabel = document.getElementById('currentLessonLabel');
-const resultsLink = sidebar.querySelector('.results-link');
-
-function lessonTabs(lesson){ return (lesson && lesson.tabs) || DEFAULT_TABS; }
 
 function renderSidebar(){
   LESSONS.forEach(lesson=>{
@@ -81,21 +89,14 @@ function renderSidebar(){
       btn.disabled = true;
     }
     btn.dataset.lessonId = lesson.id;
-    sidebar.insertBefore(btn, resultsLink);
+    sidebar.appendChild(btn);
   });
 }
 
 function renderTabs(){
-  const tabs = lessonTabs(state.lesson);
-  if(!tabs.some(t=>t.id === state.tab)) state.tab = tabs[0].id;
-  tabGroup.innerHTML = '';
-  tabs.forEach(t=>{
-    const btn = document.createElement('button');
-    btn.className = 'tab-btn' + (t.id === state.tab ? ' active' : '');
-    btn.dataset.tab = t.id;
-    btn.textContent = t.label;
-    btn.addEventListener('click', ()=>selectTab(t.id));
-    tabGroup.appendChild(btn);
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.tab === state.tab);
+    btn.addEventListener('click', ()=>selectTab(btn.dataset.tab));
   });
 }
 
@@ -106,7 +107,6 @@ function selectLesson(id){
   document.querySelectorAll('.lesson-btn').forEach(b=>{
     b.classList.toggle('active', b.dataset.lessonId === id);
   });
-  renderTabs();
   navigate();
 }
 
@@ -141,7 +141,7 @@ const SHEET_WEBAPP_URL = ""; // dán link Web App (Apps Script) vào đây sau k
 const hocvienSelect = document.getElementById('hocvienSelect');
 const btnSubmitResult = document.getElementById('btnSubmitResult');
 const hocvienToast = document.getElementById('hocvienToast');
-const LAST_HOCVIEN_KEY = 'hsk1_last_hocvien';
+const LAST_HOCVIEN_KEY = 'hsk2_last_hocvien';
 
 function loadHocVienList(){
   fetch('hocvien/danhsachhocvien.txt')
@@ -200,7 +200,7 @@ btnSubmitResult.addEventListener('click', ()=>{
   data.timestamp = new Date().toISOString();
 
   // Phương án 1 — lưu trong trình duyệt, ghi đè theo cặp (tên + bài)
-  const key = 'hsk1_result::' + data.lessonId + '::' + hocvien;
+  const key = 'hsk2_result::' + data.lessonId + '::' + hocvien;
   localStorage.setItem(key, JSON.stringify(data));
 
   // Phương án 2 — gửi lên Google Sheet nếu đã cấu hình endpoint (bỏ qua nếu chưa)
