@@ -1,0 +1,41 @@
+# Đáp án Bài 6 — 你的手机号是多少？ (小语讲堂 · 听读练 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — chọn từ hai âm tiết nghe được
+1-1 nàbiān
+1-2 dōngxi
+1-3 chāoshì
+1-4 wǎnfàn
+1-5 shǒujī
+1-6 diànhuà
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 B
+mt-2 B
+mt-3 C
+# Nghe – Phần 2
+mt-4 A
+mt-5 C
+# Nghe – Phần 3
+mt-6 C
+mt-7 B
+mt-8 D
+# Nghe – Phần 4
+mt-9 A
+mt-10 C
+# Đọc – Phần 1
+mt-11 C
+mt-12 B
+mt-13 D
+# Đọc – Phần 2
+mt-14 C
+mt-15 A
+mt-16 B
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 A
+mt-20 B
