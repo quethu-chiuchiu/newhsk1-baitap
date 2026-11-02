@@ -1,0 +1,34 @@
+# Đáp án Bài 7 — 我晚上六点半下班 (模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+# Bài này PDF chỉ có đáp án 模拟测练.
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 C
+mt-2 A
+mt-3 C
+# Nghe – Phần 2
+mt-4 B
+mt-5 C
+# Nghe – Phần 3
+mt-6 C
+mt-7 D
+mt-8 B
+# Nghe – Phần 4
+mt-9 A
+mt-10 C
+# Đọc – Phần 1
+mt-11 D
+mt-12 C
+mt-13 B
+# Đọc – Phần 2
+mt-14 C
+mt-15 A
+mt-16 B
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 B
+mt-20 A
