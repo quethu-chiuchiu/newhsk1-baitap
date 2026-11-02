@@ -1,0 +1,55 @@
+# Đáp án Bài 11 — 我读大学呢 (小语讲堂 · 语音 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — 声调标写: đánh dấu thanh điệu
+1-1 chàng
+1-2 lěng
+1-3 huí
+1-4 shuìjiào
+1-5 píngguǒ
+1-6 jīdàn
+1-7 dàxuéshēng
+1-8 diànyǐngyuàn
+
+# Bài 2 — 声调辨析: chọn âm tiết khác thanh
+#   2-1: mǎi
+2-1 A
+#   2-2: rè
+2-2 C
+#   2-3: xiàbān
+2-3 C
+#   2-4: hǎotīng
+2-4 B
+#   2-5: zhōngxuéshēng
+2-5 B
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 C
+mt-2 B
+mt-3 C
+# Nghe – Phần 2
+mt-4 B
+mt-5 C
+# Nghe – Phần 3
+mt-6 D
+mt-7 C
+mt-8 B
+# Nghe – Phần 4
+mt-9 B
+mt-10 C
+# Đọc – Phần 1
+mt-11 C
+mt-12 B
+mt-13 D
+# Đọc – Phần 2
+mt-14 A
+mt-15 B
+mt-16 C
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 C
+mt-20 C
