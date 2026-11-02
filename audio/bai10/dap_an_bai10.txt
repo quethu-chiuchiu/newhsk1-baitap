@@ -1,0 +1,55 @@
+# Đáp án Bài 10 — 这儿的苹果真便宜！ (小语讲堂 · 语音 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — 声调标写: đánh dấu thanh điệu
+1-1 duì
+1-2 jiā
+1-3 guó
+1-4 xiǎng
+1-5 chāoshì
+1-6 niúnǎi
+1-7 shàngwǔ
+1-8 diànyǐng
+
+# Bài 2 — 声调辨析: chọn âm tiết khác thanh
+#   2-1: zhuō
+2-1 C
+#   2-2: chá
+2-2 B
+#   2-3: qù
+2-3 B
+#   2-4: yǒu
+2-4 A
+#   2-5: yīyuàn
+2-5 C
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 B
+mt-2 C
+mt-3 B
+# Nghe – Phần 2
+mt-4 B
+mt-5 B
+# Nghe – Phần 3
+mt-6 C
+mt-7 D
+mt-8 B
+# Nghe – Phần 4
+mt-9 A
+mt-10 B
+# Đọc – Phần 1
+mt-11 C
+mt-12 B
+mt-13 D
+# Đọc – Phần 2
+mt-14 C
+mt-15 A
+mt-16 B
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 B
+mt-20 A
