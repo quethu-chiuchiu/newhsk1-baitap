@@ -1,0 +1,43 @@
+# Đáp án Bài 4 — 我有两个孩子 (小语讲堂 · 听读练 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — chọn âm tiết nghe được
+1-1 pā
+1-2 zì
+1-3 láng
+1-4 jǔ
+1-5 mén
+1-6 rù
+1-7 kè
+1-8 qǐng
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 B
+mt-2 C
+mt-3 B
+# Nghe – Phần 2
+mt-4 B
+mt-5 B
+# Nghe – Phần 3
+mt-6 D
+mt-7 C
+mt-8 B
+# Nghe – Phần 4
+mt-9 A
+mt-10 C
+# Đọc – Phần 1
+mt-11 C
+mt-12 D
+mt-13 B
+# Đọc – Phần 2
+mt-14 C
+mt-15 D
+mt-16 B
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 B
+mt-20 A
