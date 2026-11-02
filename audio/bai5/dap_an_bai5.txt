@@ -1,0 +1,43 @@
+# Đáp án Bài 5 — 今天我休息 (小语讲堂 · 听读练 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — chọn âm tiết nghe được
+1-1 gē
+1-2 qiǎng
+1-3 sóng
+1-4 nìng
+1-5 jiā
+1-6 cuàn
+1-7 tōu
+1-8 shí
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 C
+mt-2 A
+mt-3 B
+# Nghe – Phần 2
+mt-4 A
+mt-5 B
+# Nghe – Phần 3
+mt-6 C
+mt-7 B
+mt-8 D
+# Nghe – Phần 4
+mt-9 B
+mt-10 B
+# Đọc – Phần 1
+mt-11 D
+mt-12 C
+mt-13 B
+# Đọc – Phần 2
+mt-14 C
+mt-15 B
+mt-16 D
+# Đọc – Phần 3
+mt-17 A
+mt-18 B
+# Đọc – Phần 4
+mt-19 C
+mt-20 B
