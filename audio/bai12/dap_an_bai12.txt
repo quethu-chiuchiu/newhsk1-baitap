@@ -1,0 +1,51 @@
+# Đáp án Bài 12 — 昨天下雪了 (小语讲堂 · 语音 + 模拟测练)
+# Mỗi dòng: mã-câu  đáp án   (dòng bắt đầu bằng # được bỏ qua)
+# Nguồn: 新HSK教程1 学练手册 – 习题答案 (PDF)
+
+# Bài 1 — 声调辨析: chọn âm tiết khác thanh
+#   1-1: shuì
+1-1 B
+#   1-2: wèntí
+1-2 A
+#   1-3: fēicháng
+1-3 B
+#   1-4: duìbuqǐ
+1-4 C
+
+# Bài 2 — nghe âm tiết, nối từ (mã câu = số thứ tự âm tiết nghe được)
+2-1 你好
+2-2 名字
+2-3 中国
+2-4 老师
+2-5 孩子
+2-6 谢谢
+
+# ===== 模拟测练 (mã mt-) =====
+# Nghe – Phần 1
+mt-1 A
+mt-2 C
+mt-3 B
+# Nghe – Phần 2
+mt-4 C
+mt-5 B
+# Nghe – Phần 3
+mt-6 D
+mt-7 C
+mt-8 B
+# Nghe – Phần 4
+mt-9 A
+mt-10 B
+# Đọc – Phần 1
+mt-11 D
+mt-12 B
+mt-13 C
+# Đọc – Phần 2
+mt-14 B
+mt-15 A
+mt-16 C
+# Đọc – Phần 3
+mt-17 B
+mt-18 A
+# Đọc – Phần 4
+mt-19 A
+mt-20 A
