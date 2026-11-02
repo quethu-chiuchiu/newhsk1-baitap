@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bài 7 · 我晚上六点半下班 | HSK1 Luyện Tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script src="./quiz.js"></script>
+<style>
+  /* riêng Bài 4 */
+  .say-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+  @media (max-width:700px){ .say-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  .say{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;cursor:pointer;
+    font-family:inherit;color:inherit;transition:.15s;position:relative;}
+  .say:hover{border-color:var(--orange-light);}
+  .say.playing{border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,64,47,.18);}
+  .say .n{font-size:11px;color:var(--ink-soft);position:absolute;top:4px;left:8px;}
+  .say .py{font-size:18px;font-weight:700;}
+  .say .hz{font-family:'Noto Sans SC',sans-serif;font-size:15px;color:var(--ink-soft);}
+  .say .rd{font-size:12.5px;color:var(--orange-dark);font-weight:600;}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media (max-width:700px){ .contrast{grid-template-columns:1fr;} }
+  .contrast .box{background:var(--cream);border-radius:12px;padding:12px 14px;}
+  .contrast h4{margin:0 0 8px;font-size:14.5px;color:var(--orange-dark);}
+  .contrast .row{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-top:1px dashed var(--line);cursor:pointer;flex-wrap:wrap;}
+  .contrast .row:first-of-type{border-top:none;}
+  .contrast .row .hz{font-family:'Noto Sans SC',sans-serif;font-size:18px;min-width:44px;}
+  .contrast .row .py{font-weight:700;min-width:84px;}
+  .contrast .row .vi{font-size:14px;color:var(--ink-soft);}
+  .pair-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+  @media (max-width:700px){ .pair-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  .pair-grid.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+  @media (max-width:700px){ .pair-grid.three{grid-template-columns:1fr;} }
+  .pair{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:8px;}
+  .pair .n{font-size:13px;color:var(--ink-soft);font-weight:700;min-width:22px;}
+  .pair .opt-group{flex-wrap:nowrap;}
+  .pair .opt-btn{font-size:17px;font-weight:700;padding:6px 12px;}
+  .pair .key-explain{margin-left:auto;}
+  .test-sub{font-weight:900;font-size:19px;text-align:center;margin:30px 0 4px;}
+  .test-sub .zh{color:var(--ink-soft);font-weight:700;}
+  .opt-btn .opt-py{display:block;font-size:12px;opacity:.75;font-weight:500;}
+</style>
+</head>
+<body class="lesson-body">
+<style>
+  .contrast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  @media (max-width:700px){ .contrast-grid{grid-template-columns:1fr;} }
+  .cgroup{background:var(--cream);border-radius:14px;padding:10px 14px;}
+  .cgroup .crow{display:grid;grid-template-columns:1fr 1fr;padding:5px 0;border-top:1px dashed var(--line);font-size:19px;font-weight:600;text-align:center;}
+  .cgroup .crow:first-child{border-top:none;}
+  .cgroup .crow span:last-child{color:var(--orange-dark);}
+  .cgroup.four{grid-template-columns:none;}
+  .chead{display:grid;grid-template-columns:1fr 1fr;text-align:center;font-size:12.5px;color:var(--ink-soft);font-weight:700;margin-bottom:4px;}
+  .pair-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px;}
+  .pair-chips .chip b{color:var(--orange-dark);}
+  .hanzi-facts{display:grid;gap:10px;}
+  .comp{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;flex-wrap:wrap;}
+  .comp .big{font-family:'Noto Sans SC',sans-serif;font-size:42px;font-weight:700;line-height:1;}
+  .comp .eq{font-size:20px;font-weight:700;color:var(--ink-soft);}
+  .comp .part{font-family:'Noto Sans SC',sans-serif;font-size:26px;font-weight:700;}
+  .comp .lbl{font-size:13px;color:var(--ink-soft);display:block;text-align:center;}
+  .comp .tag-s{color:#2f6fd1;} .comp .tag-m{color:var(--green);}
+  .script-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14.5px;}
+  .script-row span{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:4px 12px;}
+  .script-row span.std{background:var(--orange);color:#fff;border-color:var(--orange);font-weight:700;}
+  .script-row i{color:var(--ink-soft);font-style:normal;}
+</style>
+
+<div class="lesson-main">
+
+  <div class="lesson-heading">
+    <span class="badge">Bài 7 · 小语讲堂 + 模拟测练</span>
+    <h1><span class="zh">我晚上六点半下班</span></h1>
+    <p>Tôi tan làm lúc 6 giờ rưỡi tối — I’ll finish work at 6:30 in the evening</p>
+  </div>
+
+  <!-- ============ NGỮ ÂM + CHỮ HÁN ============ -->
+  <section class="tab-section" data-tab="pronunciation">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">🔤</div>
+        <h2>Ngữ âm <span class="zh">一、语音 Pronunciation</span></h2>
+      </div>
+      <p class="section-note">小语讲堂 Xiaoyu’s Classroom — đọc giải thích, nghe audio 7-1 và đọc theo từng cặp.</p>
+
+      <div class="audio-master">
+        <span class="label">🔊 Audio 7-1 · Ngữ âm</span>
+        <audio controls preload="none" src="audio/bai7/7-1.mp3"></audio>
+        <span class="audio-missing" style="display:none;">(chưa có file audio/bai7/7-1.mp3)</span>
+      </div>
+
+      <!-- 1. 送气 / 不送气 -->
+      <div class="sub-title"><span class="no">1</span>Phân biệt thanh mẫu bật hơi và không bật hơi <span class="zh">送气声母和不送气声母辨析</span></div>
+      <p class="lead">Thanh mẫu <b>bật hơi</b> và <b>không bật hơi</b> là một đặc trưng lớn của ngữ âm tiếng Trung. Chúng đi thành <b>cặp</b>, tổng cộng <b>6 cặp</b>:</p>
+      <div class="pair-chips">
+        <span class="chip">b – <b>p</b></span><span class="chip">d – <b>t</b></span><span class="chip">g – <b>k</b></span>
+        <span class="chip">j – <b>q</b></span><span class="chip">zh – <b>ch</b></span><span class="chip">z – <b>c</b></span>
+      </div>
+      <p class="lead zh-src zh">送气声母和不送气声母是汉语语音的一大特色，送气声母和不送气声母都是成对的，共六组：“b和p、d和t、g和k、j和q、zh和ch、z和c”。</p>
+      <div class="rule-list">
+        <div class="rule"><span class="ico">💡</span><div><b>Mẹo kiểm tra:</b> đặt tờ giấy mỏng trước miệng. Đọc <b>p, t, k, q, ch, c</b> (bật hơi) giấy sẽ <b>rung mạnh</b>; đọc <b>b, d, g, j, zh, z</b> giấy gần như không động. Người Việt hay đọc <b>b, d, g</b> thành âm hữu thanh như tiếng Việt — trong tiếng Trung chúng là âm <b>không bật hơi, không rung dây thanh</b> (gần “p, t, c” tiếng Việt).</div></div>
+      </div>
+
+      <div class="task-line"><div>听录音，分辨送气声母和不送气声母，并大声朗读。<small>Nghe ghi âm, phân biệt bật hơi / không bật hơi, rồi đọc to. (Cột phải màu đỏ = bật hơi)</small></div></div>
+      <div class="contrast-grid" id="aspirated"></div>
+
+      <!-- 2. 前鼻音 / 后鼻音 -->
+      <div class="sub-title"><span class="no">2</span>Phân biệt vận mẫu mũi trước và mũi sau <span class="zh">前鼻音韵母和后鼻音韵母辨析</span></div>
+      <p class="lead">Vận mẫu <b>mũi trước</b> kết thúc bằng <b>-n</b>; vận mẫu <b>mũi sau</b> kết thúc bằng <b>-ng</b>.</p>
+      <p class="lead zh-src zh">汉语中前鼻音韵母是指以“-n”结尾的韵母，后鼻音韵母是指以“-ng”结尾的韵母。</p>
+      <div class="rule-list">
+        <div class="rule"><span class="ico">💡</span><div><b>-n</b>: kết thúc bằng <b>đầu lưỡi chạm lợi trên</b> (giống “n” cuối tiếng Việt: <i>an, ăn</i>). <b>-ng</b>: kết thúc bằng <b>cuống lưỡi nâng lên</b>, miệng mở (giống “ng” cuối: <i>ang</i>). Chú ý <b>in / ing</b>, <b>en / eng</b> người Việt rất hay đọc lẫn.</div></div>
+      </div>
+
+      <div class="task-line"><div>听录音，分辨前鼻音韵母和后鼻音韵母，并大声朗读。<small>Nghe ghi âm, phân biệt -n / -ng, rồi đọc to. (Cột phải màu đỏ = -ng)</small></div></div>
+      <div class="contrast-grid" id="nasal" style="grid-template-columns:repeat(4,minmax(0,1fr));"></div>
+
+      <!-- 3. 汉字 -->
+      <div class="sub-title"><span class="no">字</span>Giới thiệu chữ Hán <span class="zh">二、汉字 · 汉字简介</span></div>
+      <div class="hanzi-facts">
+        <div class="rule"><span class="ico">🏺</span><div>Chữ Hán ra đời ở Trung Quốc cổ đại, là <b>một trong những chữ viết cổ nhất thế giới</b>, và là chữ viết <b>duy nhất</b> được dùng liên tục từ cổ đại đến nay, chưa từng gián đoạn.</div></div>
+        <div class="rule"><span class="ico">🖌️</span><div style="width:100%;">Chữ Hán là ký hiệu ghi lại tiếng Hán. Trong lịch sử trải qua nhiều thể chữ — đến nay vẫn dùng trong thư pháp. <b>Khải thư</b> là thể chữ <b>chuẩn</b>.
+          <div class="script-row" style="margin-top:8px;">
+            <span>甲骨文 <i>giáp cốt</i></span><span>金文 <i>kim văn</i></span><span>篆书 <i>triện</i></span><span>隶书 <i>lệ</i></span>
+            <span class="std">楷书 khải ✓</span><span>草书 <i>thảo</i></span><span>行书 <i>hành</i></span>
+          </div></div></div>
+        <div class="rule"><span class="ico">🧩</span><div>Chữ Hán lấy <b>chữ tượng hình làm cơ sở</b>, lấy <b>chữ hình thanh làm chủ thể</b> — chữ hình thanh chiếm khoảng <b>90%</b> chữ Hán hiện đại.</div></div>
+        <div class="rule"><span class="ico">🔍</span><div>Chữ Hán là thể thống nhất <b>hình – âm – nghĩa</b>: nhìn hình chữ thường đoán được <span class="tag-m" style="color:var(--green);font-weight:700;">nghĩa</span> (bộ thủ) và <span style="color:#2f6fd1;font-weight:700;">cách đọc</span> (thành phần biểu âm).</div></div>
+        <div class="comp">
+          <span class="big">材</span><span class="eq">=</span>
+          <span><span class="part tag-m">木</span><span class="lbl">bộ Mộc · nghĩa: gỗ, cây</span></span><span class="eq">+</span>
+          <span><span class="part tag-s">才</span><span class="lbl">gợi âm: cái → cái</span></span>
+          <span style="margin-left:auto;font-size:14px;color:var(--ink-soft);">cái — vật liệu, gỗ</span>
+        </div>
+        <div class="comp">
+          <span class="big">花</span><span class="eq">=</span>
+          <span><span class="part tag-m">艹</span><span class="lbl">bộ Thảo · nghĩa: cỏ, hoa</span></span><span class="eq">+</span>
+          <span><span class="part tag-s">化</span><span class="lbl">gợi âm: huà → huā</span></span>
+          <span style="margin-left:auto;font-size:14px;color:var(--ink-soft);">huā — hoa</span>
+        </div>
+      </div>
+
+      <!-- Kiểm tra nhanh -->
+      <div class="sub-title"><span class="no">✓</span>Kiểm tra nhanh <span class="zh">小测验</span></div>
+      <p class="lead">8 câu ôn lại phần ngữ âm và chữ Hán — chọn đáp án rồi bấm <b>“Chấm điểm”</b>.</p>
+      <div id="quick-quiz"></div>
+
+      <div class="score-bar">
+        <div class="score-panel">
+          <span class="txt" id="q-score">0 / 8 câu</span>
+          <button class="btn btn-primary" id="q-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="q-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ MÔ PHỎNG (模拟测练) ============ -->
+  <section class="tab-section" data-tab="test">
+    <section class="card" id="test-listen">
+      <div class="section-head">
+        <div class="icon">📝</div>
+        <h2>Mô phỏng · Nghe <span class="zh">模拟测练 一、听力 Listening</span></h2>
+      </div>
+
+      <div class="audio-master">
+        <span class="label">🔊 Audio 7-2 · Nghe (10 câu)</span>
+        <audio controls preload="none" src="audio/bai7/7-2.mp3"></audio>
+        <span class="audio-missing" style="display:none;">(chưa có file audio/bai7/7-2.mp3)</span>
+      </div>
+      <div class="key-note" id="tl-note" style="display:none;"></div>
+
+      <div class="part">
+        <div class="part-title">第一部分 Part I</div>
+        <div class="part-instructions">第1–3题：听短语，选择正确图片。每题听两次。 — Nghe cụm từ, chọn đúng hình.</div>
+        <div class="example-box">例如 Ví dụ：三个苹果 <i>sān gè píngguǒ</i> (ba quả táo) <b>→ C</b></div>
+        <div id="tl-p1"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第二部分 Part II</div>
+        <div class="part-instructions">第4–5题：听问题，选择正确回答。每题听两次。 — Nghe câu hỏi, chọn câu trả lời đúng.</div>
+        <div class="example-box">例如：今天天气怎么样？ <b>A 非常热 ✓</b>　B 很好听　C 在喝水</div>
+        <div id="tl-p2"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第三部分 Part III</div>
+        <div class="part-instructions">第6–8题：听对话，选择最匹配的图片。每题听两次。 — Nghe hội thoại, chọn hình phù hợp nhất.</div>
+        <div class="pic-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="pic-card"><span class="letter">A</span><img src="images/bai7/N6-A.webp" data-base="images/bai7/N6-A" alt="A" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">B</span><img src="images/bai7/N6-B.webp" data-base="images/bai7/N6-B" alt="B" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">C</span><img src="images/bai7/N6-C.webp" data-base="images/bai7/N6-C" alt="C" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">D</span><img src="images/bai7/N6-D.webp" data-base="images/bai7/N6-D" alt="D" onerror="HSK.imgFallback(this)"></div>
+        </div>
+        <div class="example-box">例如：女：你好！ 男：你好！很高兴认识你。 <b>→ A</b></div>
+        <div id="tl-p3"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第四部分 Part IV</div>
+        <div class="part-instructions">第9–10题：听句子和问题，选择正确答案。每题听两次。 — Nghe câu và câu hỏi, chọn đáp án đúng.</div>
+        <div class="example-box">例如：下午我去超市，我想买一些水果。 问：说话人下午去哪里？ <b>A 超市 ✓</b>　B 医院　C 学校</div>
+        <div id="tl-p4"></div>
+      </div>
+
+      <div class="score-bar" id="tl-score-bar" style="display:none;">
+        <div class="score-panel">
+          <span class="txt" id="tl-score">0 câu</span>
+          <button class="btn btn-primary" id="tl-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="tl-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="test-read">
+      <div class="section-head">
+        <div class="icon">📖</div>
+        <h2>Mô phỏng · Đọc <span class="zh">二、阅读 Reading</span></h2>
+      </div>
+      <p class="section-note">Chọn đáp án rồi bấm <b>“Chấm điểm”</b> ở thanh dưới cùng để tự kiểm tra.</p>
+
+      <div class="part">
+        <div class="part-title">第一部分 Part I</div>
+        <div class="part-instructions">第11–13题：选择与句子最匹配的图片。 — Chọn hình phù hợp nhất với câu.</div>
+        <div class="pic-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="pic-card"><span class="letter">A</span><img src="images/bai7/D1-A.webp" data-base="images/bai7/D1-A" alt="A" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">B</span><img src="images/bai7/D1-B.webp" data-base="images/bai7/D1-B" alt="B" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">C</span><img src="images/bai7/D1-C.webp" data-base="images/bai7/D1-C" alt="C" onerror="HSK.imgFallback(this)"></div>
+          <div class="pic-card"><span class="letter">D</span><img src="images/bai7/D1-D.webp" data-base="images/bai7/D1-D" alt="D" onerror="HSK.imgFallback(this)"></div>
+        </div>
+        <div class="example-box">例如：我很喜欢这本书。 <b>→ A</b></div>
+        <div id="tr-p1"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第二部分 Part II</div>
+        <div class="part-instructions">第14–16题：匹配句子。 — Ghép câu.</div>
+        <div class="example-box">
+          <div><b>A</b> 早上七点半。 <i>Zǎoshang qī diǎn bàn.</i></div>
+          <div><b>B</b> 对不起，我有课。 <i>Duìbuqǐ, wǒ yǒu kè.</i></div>
+          <div><b>C</b> 电影院。 <i>Diànyǐngyuàn.</i></div>
+          <div><b>D</b> 好的，谢谢！ <i>Hǎo de, xièxie!</i></div>
+          <div style="margin-top:8px;">例如：你喝水吗？ → <b>D</b></div>
+        </div>
+        <div id="tr-p2"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第三部分 Part III</div>
+        <div class="part-instructions">第17–18题：选词填空。 — Chọn từ điền vào chỗ trống.</div>
+        <div class="example-box">
+          <b>A</b> 医院 <i>yīyuàn</i>　<b>B</b> 中午 <i>zhōngwǔ</i>　<b>C</b> 名字 <i>míngzi</i>
+          <div style="margin-top:8px;">例如：你叫什么（ C ）？</div>
+        </div>
+        <div id="tr-p3"></div>
+      </div>
+
+      <div class="part">
+        <div class="part-title">第四部分 Part IV</div>
+        <div class="part-instructions">第19–20题：选择正确答案。 — Chọn đáp án đúng.</div>
+        <div class="example-box">例如：请问现在几点了？ ★说话人想知道什么？ <b>A 时间 ✓</b>　B 名字　C 房间号</div>
+        <div id="tr-p4"></div>
+      </div>
+
+      <div class="score-bar" id="tr-score-bar" style="display:none;">
+        <div class="score-panel">
+          <span class="txt" id="tr-score">0 câu</span>
+          <button class="btn btn-primary" id="tr-grade">Chấm điểm</button>
+          <button class="btn btn-ghost" id="tr-reset">Làm lại</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ TỪ VỰNG ============ -->
+  <section class="tab-section" data-tab="vocab">
+    <section class="card">
+      <div class="section-head">
+        <div class="icon">📚</div>
+        <h2>Từ vựng <span class="zh">生词 Vocabulary</span></h2>
+      </div>
+      <div id="vocab-game"></div>
+    </section>
+  </section>
+
+  <footer class="lesson-footer">
+    Tài liệu tham khảo từ 《新HSK教程1 学练手册》— New HSK Course 1 Workbook, Lesson 7 (tr. 039–047).
+  </footer>
+</div>
+
+<script>
+HSK.initTabs('pronunciation');
+
+document.querySelectorAll('.audio-master audio').forEach(function(a){
+  a.addEventListener('error', function(){
+    const miss = a.parentNode.querySelector('.audio-missing');
+    if(miss) miss.style.display = '';
+  });
+});
+
+/* ================= helpers dùng riêng cho trang này ================= */
+const IMG = 'images/bai7/';
+
+function flash(el){ el.classList.add('playing'); setTimeout(function(){ el.classList.remove('playing'); }, 900); }
+
+function mountWordCards(containerId, words){
+  const box = document.getElementById(containerId);
+  words.forEach(function(w){
+    const card = HSK.el(
+      '<button type="button" class="word-card">' +
+        '<img src="'+IMG+w.img+'.webp" data-base="'+IMG+w.img+'" alt="'+w.hz+'" loading="lazy" onerror="HSK.imgFallback(this)">' +
+        '<div class="wc-body"><div class="wc-py">'+w.py+'</div><div class="wc-hz">'+w.hz+'</div><div class="wc-vi">'+w.vi+'</div></div>' +
+      '</button>');
+    card.addEventListener('click', function(){ HSK.speak(w.hz); flash(card); });
+    box.appendChild(card);
+  });
+}
+
+/* Ô “đọc theo”: pinyin + chữ Hán (+ dòng cách đọc thực tế nếu có). Bấm để nghe. */
+function mountSay(containerId, items, numbered){
+  const box = document.getElementById(containerId);
+  items.forEach(function(it, i){
+    const b = HSK.el('<button type="button" class="say">' +
+      (numbered ? '<span class="n">('+(i+1)+')</span>' : '') +
+      '<div class="py">'+it.py+'</div><div class="hz">'+it.hz+'</div>' +
+      (it.rd ? '<div class="rd">đọc: '+it.rd+'</div>' : '') + '</button>');
+    b.addEventListener('click', function(){ HSK.speak(it.hz); flash(b); });
+    box.appendChild(b);
+  });
+}
+
+/* Nút chọn chữ (dùng chung cho KeyedQuiz kiểu 'choice'): opts = [{v:'A', t:'…', py:'…'}] */
+function choiceRow(qid, n, opts, text){
+  const btns = opts.map(function(o){
+    return '<button type="button" class="opt-btn" data-q="'+qid+'" data-letter="'+o.v+'">' +
+      (o.py ? '<span class="opt-py">'+o.py+'</span>' : '') + o.v + (o.t ? ' '+o.t : '') + '</button>';
+  }).join('');
+  return HSK.el('<div class="q-row" style="flex-direction:column;align-items:stretch;">' +
+    '<div style="display:flex;gap:10px;align-items:baseline;"><div class="q-num">'+n+'.</div>' +
+      (text ? '<div class="q-text">'+text+'</div>' : '') + '</div>' +
+    '<div class="opt-group" style="margin-left:36px;">'+btns+'</div>' +
+    '<div class="key-explain" data-q="'+qid+'" style="margin-left:36px;"></div></div>');
+}
+
+function loadKeyFile(path, quizzes, builtins){
+  fetch(path, {cache:'no-store'})
+    .then(r => r.ok ? r.text() : Promise.reject())
+    .then(text => {
+      const fromFile = HSK.parseKeyFile(text);
+      quizzes.forEach(function(q, i){
+        const ids = q.items.map(function(it){ return it.id; });
+        const part = {};
+        Object.keys(fromFile).forEach(function(k){ if(ids.indexOf(k) >= 0) part[k] = fromFile[k]; });
+        if(Object.keys(part).length) q.setKey(Object.assign({}, builtins[i] || {}, part));
+      });
+    })
+    .catch(() => {});
+}
+
+
+/* ---------------- NGỮ ÂM ---------------- */
+function mountContrast(id, groups, heads){
+  const box = document.getElementById(id);
+  groups.forEach(function(g){
+    const el = HSK.el('<div class="cgroup"><div class="chead"><span>'+heads[0]+'</span><span>'+heads[1]+'</span></div></div>');
+    g.forEach(function(p){ el.appendChild(HSK.el('<div class="crow"><span>'+p[0]+'</span><span>'+p[1]+'</span></div>')); });
+    box.appendChild(el);
+  });
+}
+mountContrast('aspirated', [
+  [['gǔ','kǔ'],['diān','tiān'],['dòng','tòng'],['jiǔ','qiǔ']],
+  [['zēng','cēng'],['zhǔn','chǔn'],['zhí','chí'],['zì','cì']],
+  [['bái','pái'],['bēn','pēn'],['jǔ','qǔ'],['guā','kuā']],
+], ['không bật hơi','bật hơi']);
+mountContrast('nasal', [
+  [['pén','péng'],['rǎn','rǎng'],['nián','niáng'],['jiàn','jiàng']],
+  [['gǎn','gǎng'],['mén','méng'],['sēn','sēng'],['zàn','zàng']],
+  [['shěn','shěng'],['huán','huáng'],['fàn','fàng'],['chēn','chēng']],
+  [['lín','líng'],['xiǎn','xiǎng'],['bìn','bìng'],['qīn','qīng']],
+], ['-n','-ng']);
+
+const quickQuiz = new HSK.Quiz({scoreTxtId:'q-score', gradeBtnId:'q-grade', resetBtnId:'q-reset'});
+const qq = document.getElementById('quick-quiz');
+[
+  {n:1, q:'Cặp nào gồm thanh mẫu <b>không bật hơi – bật hơi</b>?', o:{A:'b – m',B:'d – t',C:'f – h',D:'n – l'}, a:'B'},
+  {n:2, q:'Thanh mẫu nào là <b>bật hơi</b>?', o:{A:'g',B:'j',C:'zh',D:'c'}, a:'D'},
+  {n:3, q:'Âm bật hơi tương ứng với <b>zh</b> là:', o:{A:'z',B:'sh',C:'ch',D:'q'}, a:'C'},
+  {n:4, q:'Tiếng Trung có bao nhiêu cặp thanh mẫu bật hơi / không bật hơi?', o:{A:'4',B:'5',C:'6',D:'8'}, a:'C'},
+  {n:5, q:'Vận mẫu nào là <b>mũi sau</b>?', o:{A:'in',B:'en',C:'an',D:'ing'}, a:'D'},
+  {n:6, q:'Thể chữ <b>chuẩn</b> của chữ Hán hiện nay là:', o:{A:'甲骨文',B:'楷书',C:'草书',D:'篆书'}, a:'B'},
+  {n:7, q:'Chữ <b>hình thanh</b> chiếm khoảng bao nhiêu chữ Hán hiện đại?', o:{A:'30%',B:'50%',C:'70%',D:'90%'}, a:'D'},
+  {n:8, q:'Trong chữ <span class="zh" style="font-size:20px;">花</span>, bộ <b>艹</b> cho biết:', o:{A:'cách đọc',B:'nghĩa liên quan cỏ cây, hoa',C:'số nét',D:'thanh điệu'}, a:'B'},
+].forEach(function(it){ quickQuiz.mountFillBlank(qq, it.n, it.q, it.o, it.a); });
+quickQuiz.bindButtons();
+
+/* ---------------- MÔ PHỎNG · NGHE (7-2) ---------------- */
+const testL = new HSK.KeyedQuiz({
+  scope:'#test-listen', scoreBarId:'tl-score-bar', scoreTxtId:'tl-score',
+  gradeBtnId:'tl-grade', resetBtnId:'tl-reset', noteId:'tl-note'
+});
+const tlP1 = document.getElementById('tl-p1');
+[1,2,3].forEach(function(n){
+  const id = 'L' + n;
+  testL.add(id, 'choice');
+  const opts = ['A','B','C'].map(function(L){
+    const base = IMG + 'N' + n + '-' + L;
+    return '<button type="button" class="opt-btn pic-opt" data-q="'+id+'" data-letter="'+L+'">' +
+      '<span class="letter">'+L+'</span><img src="'+base+'.webp" data-base="'+base+'" alt="'+L+'" onerror="HSK.imgFallback(this)"></button>';
+  }).join('');
+  tlP1.appendChild(HSK.el('<div class="q-row" style="flex-direction:column;align-items:stretch;">' +
+    '<div class="q-num">'+n+'.</div><div class="opt-group pic-opt-grid">'+opts+'</div>' +
+    '<div class="key-explain" data-q="'+id+'"></div></div>'));
+});
+const tlP2 = document.getElementById('tl-p2');
+[
+  {n:4, o:[['A','10:00',''],['B','12:00',''],['C','12号','hào']]},
+  {n:5, o:[['A','8月','yuè'],['B','三分钟','sān fēnzhōng'],['C','7:10','']]},
+].forEach(function(it){
+  testL.add('L'+it.n, 'choice');
+  tlP2.appendChild(choiceRow('L'+it.n, it.n, it.o.map(function(x){ return {v:x[0], t:x[1], py:x[2]}; })));
+});
+const tlP3 = document.getElementById('tl-p3');
+[6,7,8].forEach(function(n){
+  testL.add('L'+n, 'choice');
+  tlP3.appendChild(choiceRow('L'+n, n, ['A','B','C','D'].map(function(v){ return {v:v}; })));
+});
+const tlP4 = document.getElementById('tl-p4');
+[
+  {n:9,  o:[['A','上课','shàngkè'],['B','上班','shàngbān'],['C','看电影','kàn diànyǐng']]},
+  {n:10, o:[['A','饭店','fàndiàn'],['B','菜店','càidiàn'],['C','超市','chāoshì']]},
+].forEach(function(it){
+  testL.add('L'+it.n, 'choice');
+  tlP4.appendChild(choiceRow('L'+it.n, it.n, it.o.map(function(x){ return {v:x[0], t:x[1], py:x[2]}; })));
+});
+testL.setKey({});   // cần audio 7-2 → đáp án điền ở audio/bai7/dap_an_bai7.txt (mã L1 … L10)
+testL.bind();
+
+/* ---------------- MÔ PHỎNG · ĐỌC (đáp án suy ra từ đề) ---------------- */
+const testR = new HSK.KeyedQuiz({
+  scope:'#test-read', scoreBarId:'tr-score-bar', scoreTxtId:'tr-score',
+  gradeBtnId:'tr-grade', resetBtnId:'tr-reset'
+});
+function addR(containerId, n, text, opts){
+  testR.add('R'+n, 'choice');
+  document.getElementById(containerId).appendChild(choiceRow('R'+n, n, opts, text));
+}
+const PY = function(s){ return ' <i style="color:var(--ink-soft);font-size:14px;">'+s+'</i>'; };
+const ABCD = ['A','B','C','D'].map(function(v){ return {v:v}; });
+addR('tr-p1', 11, '我在上课呢。' + PY('Wǒ zài shàngkè ne.'), ABCD);
+addR('tr-p1', 12, '我下午有事，晚上7:00见吧。' + PY('Wǒ xiàwǔ yǒu shì, wǎnshang 7:00 jiàn ba.'), ABCD);
+addR('tr-p1', 13, '今天不上班，我去超市买东西。' + PY('Jīntiān bú shàngbān, wǒ qù chāoshì mǎi dōngxi.'), ABCD);
+addR('tr-p2', 14, '我们在哪儿见？' + PY('Wǒmen zài nǎr jiàn?'), ABCD);
+addR('tr-p2', 15, '现在几点？' + PY('Xiànzài jǐ diǎn?'), ABCD);
+addR('tr-p2', 16, '我们下午去超市吧。' + PY('Wǒmen xiàwǔ qù chāoshì ba.'), ABCD);
+const W3 = [{v:'A',t:'医院'},{v:'B',t:'中午'},{v:'C',t:'名字'}];
+addR('tr-p3', 17, '我们（　）12:00下课。', W3);
+addR('tr-p3', 18, '男：你现在在哪儿？　女：我在（　）呢。', W3);
+addR('tr-p4', 19, '我今天早上八点半上课，十点十分下课。<br>★ 说话人今天几点下课？',
+  [{v:'A',t:'8:30'},{v:'B',t:'10:10'},{v:'C',t:'10:20'}]);
+addR('tr-p4', 20, '妈妈今天休息，下午想去菜店买些菜。<br>★ 妈妈下午想去菜店买：',
+  [{v:'A',t:'菜',py:'cài'},{v:'B',t:'饺子',py:'jiǎozi'},{v:'C',t:'牛奶',py:'niúnǎi'}]);
+const READ_KEY = { R11:'D', R12:'C', R13:'B', R14:'C', R15:'A', R16:'B', R17:'B', R18:'A', R19:'B', R20:'A' };
+testR.setKey(READ_KEY);
+testR.bind();
+
+loadKeyFile('audio/bai7/dap_an_bai7.txt', [testL, testR], [{}, READ_KEY]);
+
+window.HSK_PAGE = window.HSK_PAGE || {};
+window.HSK_PAGE.lessonId = "bai7";
+window.HSK_PAGE.lessonName = "Bài 7 · 我晚上六点半下班";
+window.HSK_PAGE.sections = [
+  { title:'🔤 Ngữ âm & Chữ Hán — Kiểm tra nhanh', short:'Ngữ âm', quiz: quickQuiz },
+  { title:'📝 Mô phỏng · Nghe (1–10)',  short:'MP Nghe', quiz: testL },
+  { title:'📖 Mô phỏng · Đọc (11–20)',  short:'MP Đọc',  quiz: testR },
+];
+
+/* ---------------- TỪ VỰNG ----------------
+   TẠM: từ lấy trong các trang bài tập — thay bằng bảng 生词 Bài 7 khi có. */
+HSK.mountVocabGame('#vocab-game', [
+  {hanzi:'晚上',   pinyin:'wǎnshang',   mean:'buổi tối (evening)'},
+  {hanzi:'早上',   pinyin:'zǎoshang',   mean:'buổi sáng (morning)'},
+  {hanzi:'中午',   pinyin:'zhōngwǔ',    mean:'buổi trưa (noon)'},
+  {hanzi:'下午',   pinyin:'xiàwǔ',      mean:'buổi chiều (afternoon)'},
+  {hanzi:'点',     pinyin:'diǎn',       mean:'giờ (o’clock)'},
+  {hanzi:'半',     pinyin:'bàn',        mean:'rưỡi; một nửa (half)'},
+  {hanzi:'分',     pinyin:'fēn',        mean:'phút (minute)'},
+  {hanzi:'分钟',   pinyin:'fēnzhōng',   mean:'phút (khoảng thời gian)'},
+  {hanzi:'现在',   pinyin:'xiànzài',    mean:'bây giờ (now)'},
+  {hanzi:'上班',   pinyin:'shàngbān',   mean:'đi làm (go to work)'},
+  {hanzi:'下班',   pinyin:'xiàbān',     mean:'tan làm (get off work)'},
+  {hanzi:'上课',   pinyin:'shàngkè',    mean:'vào học; lên lớp (attend class)'},
+  {hanzi:'下课',   pinyin:'xiàkè',      mean:'tan học (finish class)'},
+  {hanzi:'课',     pinyin:'kè',         mean:'giờ học; bài học (class)'},
+  {hanzi:'见',     pinyin:'jiàn',       mean:'gặp (meet)'},
+  {hanzi:'事',     pinyin:'shì',        mean:'việc (matter; thing)'},
+  {hanzi:'吧',     pinyin:'ba',         mean:'nhé; đi — trợ từ đề nghị'},
+  {hanzi:'呢',     pinyin:'ne',         mean:'đang… — trợ từ cuối câu'},
+  {hanzi:'在',     pinyin:'zài',        mean:'ở; đang (at; in progress)'},
+  {hanzi:'电影院', pinyin:'diànyǐngyuàn', mean:'rạp chiếu phim (cinema)'},
+  {hanzi:'看电影', pinyin:'kàn diànyǐng', mean:'xem phim (watch a movie)'},
+  {hanzi:'医院',   pinyin:'yīyuàn',     mean:'bệnh viện (hospital)'},
+  {hanzi:'菜店',   pinyin:'càidiàn',    mean:'cửa hàng rau (greengrocer)'},
+], {lessonId:'bai7', showPinyin:true, timeMs:10000});
+</script>
+</body>
+</html>
