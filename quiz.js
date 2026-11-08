@@ -511,8 +511,8 @@ window.HSK = (function(){
     String(text || '').split(/\r?\n/).forEach(function(line){
       line = line.trim();
       if(!line || line[0] === '#') return;
-      const m = line.match(/^([0-9]+-[0-9]+)\s*[:=\s]\s*(.+)$/);
-      if(m) dict[m[1]] = m[2].trim();
+      const m = line.match(/^([A-Za-z]?[0-9]+(?:-[0-9]+)?)\s*[:=\s]\s*(.+)$/);
+      if(m) dict[m[1].toUpperCase()] = m[2].trim();
     });
     return dict;
   }
@@ -543,6 +543,18 @@ window.HSK = (function(){
       if(!it) return;
       let v = String(dict[id]).trim();
       if(it.type === 'tone' && /^[0-5]$/.test(v)) v = addTone(it.base, v);
+      /* Câu chọn mà nút là âm tiết (vd pā / bā): cho phép ghi đáp án bằng
+         vị trí A/B/C hoặc 1/2/3 thay vì gõ lại âm tiết có dấu thanh. */
+      if(it.type === 'choice'){
+        const btns = Array.from(self.scope.querySelectorAll('.opt-btn[data-q="'+id+'"]'));
+        const exact = btns.some(function(b){ return b.dataset.letter === v; });
+        if(!exact && btns.length){
+          let idx = -1;
+          if(/^[A-Ha-h]$/.test(v)) idx = v.toUpperCase().charCodeAt(0) - 65;
+          else if(/^[1-8]$/.test(v)) idx = parseInt(v,10) - 1;
+          if(idx >= 0 && idx < btns.length) v = btns[idx].dataset.letter;
+        }
+      }
       self.key[id] = v;
     });
     this.updateLabel();
@@ -668,7 +680,6 @@ window.HSK = (function(){
         const tp = tb.closest('.tone-pick');
         tp.querySelectorAll('.tone-btn').forEach(b=>b.classList.remove('selected'));
         tb.classList.add('selected');
-        const out = tp.querySelector('.tone-out'); if(out) out.textContent = tb.dataset.value;
         self.updateLabel();
         return;
       }

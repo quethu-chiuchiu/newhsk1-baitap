@@ -340,7 +340,7 @@ const KEY_EX1 = 's ch z zh  z ch r s  c sh r zh';
 // Bài 2: 租 支 菜 字 超 / 认 上 怎 日 三 / 穿 热 捉 从 谁(shuí)
 const KEY_EX2 = 'u i ai i ao  en ang en i an  uan e uo ong ui';
 // Bài 3: ? ? ? ? ? (che ren chang zao shou — transcript thiếu) / 真 岁 生 日 中 / 水 坐 床 书 四
-const KEY_EX3 = '? ? ? ? ?  1 4 1 4 1  3 4 2 1 4';
+const KEY_EX3 = '1 2 4 3 3  1 4 1 4 1  3 4 2 1 4';
 const BUILTIN_KEY = {};
 [['1',KEY_EX1],['2',KEY_EX2],['3',KEY_EX3]].forEach(function(p){
   p[1].trim().split(/\s+/).filter(Boolean).forEach(function(v,i){ if(v !== '?') BUILTIN_KEY[p[0]+'-'+(i+1)] = v; });
